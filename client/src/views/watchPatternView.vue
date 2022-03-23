@@ -37,29 +37,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .watchPattern {
-  margin: 40px 0 0;
+  margin: 40px 0 0 0;
   width: 100%;
-  border: 3px solid blue;
   display: flex;
 }
-// .splitScreen {
-//   margin: 40px 20px;
-//   display: inline-block;
-//   height: 100%;
-//   border: 3px solid red;
-// }
 .splitScreen.leftScreen {
   width: 70%;
   height: 100%;
-  margin: 0 10px 0 0;
+  margin: 0 10px 0 10px;
   display: inline-block;
-  border: 3px solid green;
 }
 .splitScreen.rightScreen {
   width: 25%;
-  top: 0;
-  height: 100%;
-  margin: 0 0 0 10px;
+  margin: 0 10px 0 10px;
   display: inline-block;
   border: 3px solid green;
   min-height: 100% !important;
