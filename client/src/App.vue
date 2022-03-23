@@ -1,9 +1,13 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/watchPattern">Watch Pattern</router-link> |
+    <router-link to="/social">Social</router-link> |
+    <router-link to="/currentSession">Current Session</router-link> |
+    <router-link to="/progress">Progress</router-link>
+    <router-link to="/Bar">Bar</router-link>
   </nav>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
