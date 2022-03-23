@@ -5,7 +5,6 @@
     <router-link to="/social">Social</router-link> |
     <router-link to="/currentSession">Current Session</router-link> |
     <router-link to="/progress">Progress</router-link>
-    <router-link to="/Bar">Bar</router-link>
   </nav>
   <router-view />
 </template>

@@ -63,16 +63,6 @@ const routes = [
       );
     },
   },
-  {
-    path: "/bar",
-    name: "bar",
-    // route level code-splitting
-    // this generates a separate chunk (progress.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "progress" */ "../views/barView.vue");
-    },
-  },
 ];
 
 const router = createRouter({
