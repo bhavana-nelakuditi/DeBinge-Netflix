@@ -109,30 +109,25 @@ export default {
 .sub-info.left {
   width: 66%;
   display: inline-block;
-  border: 3px solid green;
 }
 .sub-info.right {
   width: 33%;
   display: inline-block;
-  border: 3px solid green;
   min-height: 100% !important;
 }
 .sub-info.leftbottom {
   width: 50%;
   display: inline-block;
-  border: 3px solid green;
 }
 .sub-info.rightbottom {
   width: 50%;
   display: inline-block;
-  border: 3px solid green;
   min-height: 100% !important;
 }
 .bingometer {
   width: 100%;
   height: 400px;
   display: inline-block;
-  border: 3px solid blue;
 }
 h3 {
   margin: 40px 0 0;
