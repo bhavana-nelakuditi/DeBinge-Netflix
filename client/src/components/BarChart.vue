@@ -3,9 +3,10 @@
     <Chart :data="data" :margin="margin" :direction="direction">
       <template #layers>
         <Grid strokeDasharray="2,2" />
-        <Bar :dataKeys="['name', 'pl']" :barStyle="{ fill: '#90e0ef' }" />
-        <Bar :dataKeys="['name', 'avg']" :barStyle="{ fill: '#0096c7' }" />
-        <!-- <Line :dataKeys="['name', 'avg']" type="step" /> -->
+        <Group :stacked="true">
+          <Bar :dataKeys="['name', 'pl']" :barStyle="{ fill: '#90e0ef' }" />
+          <Bar :dataKeys="['name', 'avg']" :barStyle="{ fill: '#0096c7' }" />
+        </Group>
       </template>
     </Chart>
   </div>
@@ -13,12 +14,11 @@
 
 <script>
 import { defineComponent } from "vue";
-// import { plByMonth } from "@/data";
-import { Chart, Grid, Bar, Line } from "vue3-charts";
+import { Chart, Grid, Bar, Group } from "vue3-charts";
 
 export default defineComponent({
   name: "Main",
-  components: { Chart, Grid, Bar, Line },
+  components: { Chart, Grid, Bar, Group },
   setup() {
     const data = [
       { name: "Jan", pl: 1000, avg: 500, inc: 300 },
@@ -37,8 +37,9 @@ export default defineComponent({
       right: 0,
       bottom: 0,
     };
+    const stacked = true;
 
-    return { data, margin, direction };
+    return { data, margin, direction, stacked };
   },
 });
 </script>
