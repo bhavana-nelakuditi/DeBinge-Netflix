@@ -9,6 +9,7 @@
   "dependencies": {
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
+    "vue-speedometer": "^1.8.0",
     "vue3-charts": "^1.1.31",
     "vuex": "^4.0.0"
   },

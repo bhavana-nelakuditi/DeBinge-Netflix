@@ -21,7 +21,7 @@
         </select>
       </div>
     </div>
-    <div class="bingometer"></div>
+    <div class="bingometer"><VueSpeedometer /></div>
     <div class="info">
       <div class="sub-info leftbottom"><p>Session Binge Length</p></div>
       <div class="sub-info rightbottom"><p>Time Left</p></div>
@@ -30,9 +30,54 @@
 </template>
 
 <script>
+import VueSpeedometer from "vue-speedometer";
+
 export default {
   name: "watchPattern",
-  components: {},
+  components: { VueSpeedometer },
+  template: `
+    <div>
+      <vue-speedometer 
+      :width="500"
+      :needleHeightRatio="0.7"
+      :value="777"
+      currentValueText="Happiness Level"
+      :customSegmentLabels='[
+        {
+          text: "Very Bad",
+          position: "INSIDE",
+          color: "#555",
+        },
+        {
+          text: "Bad",
+          position: "INSIDE",
+          color: "#555",
+        },
+        {
+          text: "Ok",
+          position: "INSIDE",
+          color: "#555",
+          fontSize: "19px",
+        },
+        {
+          text: "Good",
+          position: "INSIDE",
+          color: "#555",
+        },
+        {
+          text: "Very Good",
+          position: "INSIDE",
+          color: "#555",
+        },
+      ]'
+      :ringWidth="47"
+      :needleTransitionDuration="3333"
+      needleTransition="easeElastic"
+      needleColor="#a7ff83"
+      textColor="#d8dee9"
+    />
+    </div>
+  `,
   data: () => ({
     name: "",
     score: "",
