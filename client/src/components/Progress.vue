@@ -5,7 +5,12 @@
       <b>
         <div class="sub-info"><p>Current Average: 9.6 hrs</p></div>
         <div class="sub-info"><p>Target Average: 3 hrs</p></div>
-        <div class="sub-info"><p>Plan Outline</p></div></b
+        <div class="sub-info" style="text-align: justify">
+          <p>
+            Current Limits: N/A <br />Suggested Reduction: 1hr/day<br />Weeks on
+            Plan: 5
+          </p>
+        </div></b
       >
     </div>
     <!-- <div class="graphArea"></div> -->

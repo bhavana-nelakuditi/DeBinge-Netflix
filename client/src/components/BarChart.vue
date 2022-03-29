@@ -4,8 +4,11 @@
       <template #layers>
         <Grid strokeDasharray="2,2" />
         <Group :stacked="true">
-          <Bar :dataKeys="['name', 'hours']" :barStyle="{ fill: '#90e0ef' }" />
-          <Bar :dataKeys="['name', 'hoursleft']" :barStyle="{ fill: '#000' }" />
+          <Bar :dataKeys="['name', 'hours']" :barStyle="{ fill: '#2229ab' }" />
+          <Bar
+            :dataKeys="['name', 'hoursleft']"
+            :barStyle="{ fill: '#dbc2df' }"
+          />
         </Group>
       </template>
     </Chart>

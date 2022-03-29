@@ -23,8 +23,12 @@
     </div>
     <div class="bingometer"><VueSpeedometer /></div>
     <div class="info">
-      <div class="sub-info leftbottom"><p>Session Binge Length</p></div>
-      <div class="sub-info rightbottom"><p>Time Left</p></div>
+      <div class="sub-info leftbottom">
+        <p><b>Session Binge Length: 5hrs</b></p>
+      </div>
+      <div class="sub-info rightbottom">
+        <p><b>Time Left: 1hr</b></p>
+      </div>
     </div>
   </div>
 </template>
@@ -36,46 +40,17 @@ export default {
   name: "watchPattern",
   components: { VueSpeedometer },
   template: `
-    <div>
+    <div :style="styles">
       <vue-speedometer 
-      :width="500"
-      :needleHeightRatio="0.7"
-      :value="777"
-      currentValueText="Happiness Level"
-      :customSegmentLabels='[
-        {
-          text: "Very Bad",
-          position: "INSIDE",
-          color: "#555",
-        },
-        {
-          text: "Bad",
-          position: "INSIDE",
-          color: "#555",
-        },
-        {
-          text: "Ok",
-          position: "INSIDE",
-          color: "#555",
-          fontSize: "19px",
-        },
-        {
-          text: "Good",
-          position: "INSIDE",
-          color: "#555",
-        },
-        {
-          text: "Very Good",
-          position: "INSIDE",
-          color: "#555",
-        },
-      ]'
-      :ringWidth="47"
-      :needleTransitionDuration="3333"
-      needleTransition="easeElastic"
-      needleColor="#a7ff83"
-      textColor="#d8dee9"
-    />
+        :fluidWidth="true"
+        :minValue="100"
+        :maxValue="500"
+        :value="473"
+        needleColor="steelblue"
+      />
+      <div>
+      Fluid width takes the width of the parent div (<strong>500px</strong> in this case)
+      </div>
     </div>
   `,
   data: () => ({
