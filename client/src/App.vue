@@ -3,7 +3,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/watchPattern">SHOWTIME</router-link> |
     <router-link to="/social">Social</router-link> |
-    <router-link to="/currentSession">Bing-O-Meter</router-link> |
+    <router-link to="/currentSession">Binge-O-Meter</router-link> |
     <router-link to="/progress">How You Doin'?</router-link>
   </nav>
   <router-view />
