@@ -6,7 +6,6 @@
     <router-link to="/currentSession">Bing-O-Meter</router-link> |
     <router-link to="/progress">How You Doin'?</router-link>
   </nav>
-  <router-view />
 </template>
 
 <script>
@@ -14,20 +13,7 @@ export default {
   data() {
     return {
       signingIn: false,
-      counter: 0,
     };
-  },
-  methods: {
-    test: function () {
-      while (this.$store.getters.SIGNING_IN) {
-        this.$store.getters.SIGNING_IN;
-        this.counter++;
-        console.log("Test");
-      }
-    },
-  },
-  mounted() {
-    this.test();
   },
 };
 </script>

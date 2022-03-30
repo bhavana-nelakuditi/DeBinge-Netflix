@@ -1,6 +1,13 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 style="color: #e50914">{{ msg }}</h1>
+    <button @click="loginTrigger">
+      <img
+        alt="Profile Image"
+        src="../assets/netflix-profile.jpeg"
+        style="width: 256px; height: 256px"
+      />
+    </button>
   </div>
 </template>
 
@@ -9,6 +16,16 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  // mounted() {
+  //   this.loginTrigger();
+  // },
+  methods: {
+    loginTrigger() {
+      console.log("start");
+      this.$store.dispatch("GET_SIGNING_IN", true);
+      console.log("end");
+    },
   },
 };
 </script>
