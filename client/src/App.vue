@@ -13,18 +13,11 @@
 export default {
   data() {
     return {
-      signingIn: false,
-      counter: 0,
+      signingIn: true,
     };
   },
   methods: {
-    test: function () {
-      while (this.$store.getters.SIGNING_IN) {
-        this.$store.getters.SIGNING_IN;
-        this.counter++;
-        console.log("Test");
-      }
-    },
+    test: function () {},
   },
   mounted() {
     this.test();
