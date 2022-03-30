@@ -44,13 +44,13 @@ export default defineComponent({
     const chartData = {
       datasets: [
         {
-          label: "Data One",
+          label: "Saketh",
           backgroundColor: "#f87979",
           data: [
             {
               x: 20,
               y: 25,
-              r: 5,
+              r: 25,
             },
             {
               x: 40,
@@ -60,27 +60,27 @@ export default defineComponent({
             {
               x: 30,
               y: 22,
-              r: 30,
+              r: 22,
             },
           ],
         },
         {
-          label: "Data Two",
+          label: "Tom",
           backgroundColor: "#7C8CF8",
           data: [
             {
               x: 10,
-              y: 30,
+              y: 15,
               r: 15,
             },
             {
               x: 20,
-              y: 20,
+              y: 10,
               r: 10,
             },
             {
               x: 15,
-              y: 8,
+              y: 30,
               r: 30,
             },
           ],
