@@ -56,6 +56,13 @@ export default defineComponent({
         ],
       },
     },
+    chartOptions: {
+      type: Object,
+      default: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    },
     chartId: {
       type: String,
       default: "bar-chart",
@@ -82,15 +89,12 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const chartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-    };
+    // const chartOptions = ;
 
     return () =>
       h(Bar, {
         chartData: props.chartData,
-        chartOptions,
+        chartOptions: props.chartOptions,
         chartId: props.chartId,
         width: props.width,
         height: props.height,

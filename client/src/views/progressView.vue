@@ -3,7 +3,7 @@
     <div class="progress">
       <Navsection />
       <Progress />
-      <BarChart :chartData="chartData" />
+      <BarChart :chartData="chartData" :chartOptions="chartOptions" />
     </div>
   </div>
 </template>
@@ -45,6 +45,26 @@ export default {
             data: [19, 15, 9, 16, 17, 22, 14],
           },
         ],
+      },
+      chartOptions: {
+        indexAxis: "y",
+        plugins: {
+          title: {
+            display: true,
+            text: "Weekly Overview",
+          },
+        },
+        scales: {
+          y: {
+            stacked: true,
+          },
+          x: {
+            stacked: true,
+            max: 24,
+          },
+        },
+        responsive: true,
+        maintainAspectRatio: false,
       },
       data2graph: [
         { name: "Monday", hours: 5, hoursleft: 19 },
