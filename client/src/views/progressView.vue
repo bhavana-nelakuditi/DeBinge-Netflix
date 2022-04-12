@@ -3,11 +3,7 @@
     <div class="progress">
       <Navsection />
       <Progress />
-      <BarChart
-        :dataGraphKeys="graphKeys"
-        :dataGraph="data2graph"
-        directionAxis="vertical"
-      />
+      <BarChart :chartData="chartData" />
     </div>
   </div>
 </template>
@@ -27,6 +23,29 @@ export default {
   },
   data() {
     return {
+      chartData: {
+        labels: [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ],
+        datasets: [
+          {
+            label: "Hours Spent",
+            backgroundColor: "#2229ab",
+            data: [5, 9, 15, 8, 7, 2, 10],
+          },
+          {
+            label: "Hours Left",
+            backgroundColor: "#dbc2df",
+            data: [19, 15, 9, 16, 17, 22, 14],
+          },
+        ],
+      },
       data2graph: [
         { name: "Monday", hours: 5, hoursleft: 19 },
         { name: "Tuesday", hours: 9, hoursleft: 15 },

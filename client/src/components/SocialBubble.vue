@@ -37,14 +37,14 @@ export default defineComponent({
       default: "social",
       type: String,
     },
-    // styles: {
-    //   type: new PropType(),
-    //   default: () => {},
-    // },
-    // plugins: {
-    //   type: new PropType(),
-    //   default: () => {},
-    // },
+    styles: {
+      type: Object,
+      default: () => {},
+    },
+    plugins: {
+      type: Array,
+      default: () => [],
+    },
   },
   setup(props) {
     const chartData = {

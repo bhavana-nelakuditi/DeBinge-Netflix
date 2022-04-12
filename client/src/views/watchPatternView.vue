@@ -20,11 +20,7 @@
           </div>
         </div>
         <div class="graphArea">
-          <BarChart
-            :dataGraphKeys="graphKeys"
-            :dataGraph="data2graph"
-            directionAxis="horizontal"
-          />
+          <BarChart :chartData="chartData" />
         </div>
       </div>
       <div class="splitScreen rightScreen">
@@ -58,6 +54,16 @@ export default {
     Navsection,
   },
   data() {
+    var chartData = {
+      labels: ["Crown", "Game of Thrones", "You", "Kota Factory", "HIMYM"],
+      datasets: [
+        {
+          label: "TV Shows",
+          backgroundColor: "#f87979",
+          data: [5, 9, 15, 7, 2],
+        },
+      ],
+    };
     var data2graph = [
       { name: "Crown", hours: 5, genre: "Drama" },
       { name: "Game of Thrones", hours: 9, genre: "Action" },
@@ -66,6 +72,7 @@ export default {
       { name: "HIMYM", hours: 2, genre: "Sitcom" },
     ];
     return {
+      chartData: chartData,
       data2graph: data2graph,
       graphKeys: ["name", "hours"],
     };

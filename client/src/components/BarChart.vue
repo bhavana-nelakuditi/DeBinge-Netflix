@@ -1,58 +1,109 @@
 <template>
-  <div class="graph">
-    <Chart :data="dataGraph" :margin="margin" :direction="directionAxis">
-      <template #layers>
-        <Grid strokeDasharray="2,2" />
-        <Group :stacked="true">
-          <Bar :dataKeys="['name', 'hours']" :barStyle="{ fill: '#2229ab' }" />
-          <Bar
-            :dataKeys="['name', 'hoursleft']"
-            :barStyle="{ fill: '#dbc2df' }"
-          />
-        </Group>
-      </template>
-    </Chart>
-  </div>
+  <div><Bubble /></div>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { Chart, Grid, Bar, Group } from "vue3-charts";
-
+import { defineComponent, h, PropType } from "vue";
+import { Bar } from "vue-chartjs";
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Plugin,
+  PluginOptionsByType,
+} from "chart.js";
+ChartJS.register(
+  Title,
+  Tooltip,
+  Legend,
+  BarElement,
+  CategoryScale,
+  LinearScale
+);
 export default defineComponent({
-  name: "Main",
-  components: { Chart, Grid, Bar, Group },
-  props: {
-    dataGraphKeys: { type: Array },
-    dataGraph: {
-      type: Array,
-      default: () => [{ name: "null", hours: 0 }],
-    },
-    directionAxis: { type: String },
+  name: "BarChart",
+  components: {
+    Bar,
   },
-  setup() {
-    const margin = {
-      left: 0,
-      top: 0,
-      right: 0,
-      bottom: 0,
+  props: {
+    chartData: {
+      type: Object,
+      default: {
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ],
+        datasets: [
+          {
+            label: "Data One",
+            backgroundColor: "#f87979",
+            data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+          },
+        ],
+      },
+    },
+    chartId: {
+      type: String,
+      default: "bar-chart",
+    },
+    width: {
+      type: Number,
+      default: 400,
+    },
+    height: {
+      type: Number,
+      default: 400,
+    },
+    cssClasses: {
+      default: "social",
+      type: String,
+    },
+    styles: {
+      type: Object,
+      default: () => {},
+    },
+    plugins: {
+      type: Object,
+      default: () => {},
+    },
+  },
+  setup(props) {
+    const chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
     };
-    const stacked = true;
 
-    return { margin, stacked };
+    return () =>
+      h(Bar, {
+        chartData: props.chartData,
+        chartOptions,
+        chartId: props.chartId,
+        width: props.width,
+        height: props.height,
+        cssClasses: props.cssClasses,
+        styles: props.styles,
+        plugins: props.plugins,
+      });
   },
 });
 </script>
 
-<style scoped lang="scss">
-.info {
-  margin: 40px 0 0;
-  height: 20%;
-  width: 100%;
-}
-
-.graph {
-  margin: 40px 0 0;
-  width: 100%;
+<style lang="scss" scoped>
+.social {
+  margin-top: 50px;
 }
 </style>

@@ -1,9 +1,8 @@
 <template>
   <div class="progress-comp">
-    <!-- <h1>{{ msg }}</h1> -->
     <div class="info">
       <b>
-        <div class="sub-info"><p>Current Average: 9.6 hrs</p></div>
+        <div class="sub-info"><p>Current Average: 8 hrs</p></div>
         <div class="sub-info"><p>Target Average: 3 hrs</p></div>
         <div class="sub-info" style="text-align: justify">
           <p>
@@ -13,20 +12,16 @@
         </div></b
       >
     </div>
-    <!-- <div class="graphArea"></div> -->
   </div>
 </template>
 
 <script>
 export default {
   name: "progress-component",
-  props: {
-    // msg: String,
-  },
+  props: {},
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .info {
   margin: 40px 0 0;
