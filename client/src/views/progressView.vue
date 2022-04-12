@@ -82,7 +82,6 @@ export default {
   },
   methods: {
     onChange() {
-      console.log("The new value is: ", this.selected);
       if (this.selected == "B") {
         var i = 0;
         this.chartData.datasets[0].data.forEach((element) => {

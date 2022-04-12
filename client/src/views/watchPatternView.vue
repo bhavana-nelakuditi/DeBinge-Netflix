@@ -7,14 +7,9 @@
           <div class="sub-info"></div>
           <div class="sub-info"></div>
           <div class="sub-info">
-            <select name="shows" id="shows">
-              <option value="genre">All</option>
-              <option
-                v-for="data in data2graph"
-                :key="data.genre"
-                value="genre"
-              >
-                {{ data.genre }}
+            <select v-model="selected" @change="onChange()" id="shows">
+              <option v-for="option in options" :value="option.value">
+                {{ option.text }}
               </option>
             </select>
           </div>
@@ -52,28 +47,71 @@ export default {
     Navsection,
   },
   data() {
-    var chartData = {
-      labels: ["Crown", "Game of Thrones", "You", "Kota Factory", "HIMYM"],
-      datasets: [
-        {
-          label: "TV Shows",
-          backgroundColor: "#f87979",
-          data: [5, 9, 15, 7, 2],
-        },
+    return {
+      selected: "All",
+      chartData: {
+        labels: ["Crown", "Game of Thrones", "You", "Kota Factory", "HIMYM"],
+        datasets: [
+          {
+            label: "TV Shows",
+            backgroundColor: "#f87979",
+            data: [5, 9, 15, 7, 2],
+          },
+        ],
+      },
+      data2graph: [
+        { name: "Crown", hours: 5, genre: "Drama" },
+        { name: "Game of Thrones", hours: 9, genre: "Action" },
+        { name: "You", hours: 15, genre: "Thriller" },
+        { name: "Kota Factory", hours: 7, genre: "Drama" },
+        { name: "HIMYM", hours: 2, genre: "Sitcom" },
+      ],
+      options: [
+        { text: "All", value: "All" },
+        { text: "Drama", value: "Drama" },
+        { text: "Action", value: "Action" },
+        { text: "Thriller", value: "Thriller" },
+        { text: "Sitcom", value: "Sitcom" },
       ],
     };
-    var data2graph = [
-      { name: "Crown", hours: 5, genre: "Drama" },
-      { name: "Game of Thrones", hours: 9, genre: "Action" },
-      { name: "You", hours: 15, genre: "Thriller" },
-      { name: "Kota Factory", hours: 7, genre: "Drama" },
-      { name: "HIMYM", hours: 2, genre: "Sitcom" },
-    ];
-    return {
-      chartData: chartData,
-      data2graph: data2graph,
-      graphKeys: ["name", "hours"],
-    };
+  },
+  methods: {
+    onChange() {
+      this.data2graph = [
+        { name: "Crown", hours: 5, genre: "Drama" },
+        { name: "Game of Thrones", hours: 9, genre: "Action" },
+        { name: "You", hours: 15, genre: "Thriller" },
+        { name: "Kota Factory", hours: 7, genre: "Drama" },
+        { name: "HIMYM", hours: 2, genre: "Sitcom" },
+      ];
+      this.chartData.labels = [];
+      this.chartData.datasets[0].data = [];
+      var data2graphLoop = [];
+      this.data2graph.forEach((element) => {
+        if (this.selected == element.genre) {
+          data2graphLoop.push(element);
+          this.chartData.labels.push(element.name);
+          this.chartData.datasets[0].data.push(element.hours);
+        } else if (this.selected == "All") {
+          data2graphLoop = [
+            { name: "Crown", hours: 5, genre: "Drama" },
+            { name: "Game of Thrones", hours: 9, genre: "Action" },
+            { name: "You", hours: 15, genre: "Thriller" },
+            { name: "Kota Factory", hours: 7, genre: "Drama" },
+            { name: "HIMYM", hours: 2, genre: "Sitcom" },
+          ];
+          this.chartData.labels = [
+            "Crown",
+            "Game of Thrones",
+            "You",
+            "Kota Factory",
+            "HIMYM",
+          ];
+          this.chartData.datasets[0].data = [5, 9, 15, 7, 2];
+        }
+      });
+      this.data2graph = data2graphLoop;
+    },
   },
 };
 </script>
