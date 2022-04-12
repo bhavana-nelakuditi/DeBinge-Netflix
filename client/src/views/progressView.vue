@@ -66,15 +66,6 @@ export default {
         responsive: true,
         maintainAspectRatio: false,
       },
-      data2graph: [
-        { name: "Monday", hours: 5, hoursleft: 19 },
-        { name: "Tuesday", hours: 9, hoursleft: 15 },
-        { name: "Wednesday", hours: 15, hoursleft: 9 },
-        { name: "Friday", hours: 7, hoursleft: 17 },
-        { name: "Saturday", hours: 2, hoursleft: 22 },
-        { name: "Sunday", hours: 10, hoursleft: 14 },
-      ],
-      graphKeys: ["name", "hours"],
     };
   },
 };
