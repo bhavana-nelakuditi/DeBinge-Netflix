@@ -8,7 +8,7 @@
             <tbody>
               <tr>
                 <td v-for="(entry, i) in allScores" :key="i">
-                  <img :src="entry.imageLocation" width="150" height="180" />
+                  <img :src="entry.imageLocation" width="125" height="150" />
                 </td>
               </tr>
             </tbody>
