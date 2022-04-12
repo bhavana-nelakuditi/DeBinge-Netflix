@@ -8,6 +8,20 @@
       <div class="sub-info right">
         <SocialBubble :chartData="chartData1" :chartOptions="chartOptions" />
       </div>
+      <div class="sub-info left">
+        <SocialBubble :chartData="chartData" :chartOptions="chartOptions" />
+      </div>
+    </div>
+    <div class="info">
+      <div class="sub-info left">
+        <SocialBubble :chartData="chartData" :chartOptions="chartOptions" />
+      </div>
+      <div class="sub-info right">
+        <SocialBubble :chartData="chartData1" :chartOptions="chartOptions" />
+      </div>
+      <div class="sub-info left">
+        <SocialBubble :chartData="chartData" :chartOptions="chartOptions" />
+      </div>
     </div>
   </div>
 </template>
@@ -206,11 +220,11 @@ export default {
   display: flex;
 }
 .sub-info.left {
-  width: 50%;
+  width: 33%;
   display: inline-block;
 }
 .sub-info.right {
-  width: 50%;
+  width: 33%;
   display: inline-block;
   min-height: 100% !important;
 }
