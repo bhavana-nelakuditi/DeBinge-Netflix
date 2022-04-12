@@ -1,33 +1,36 @@
 <template>
-  <div class="currentSession">
-    <div class="info">
-      <div class="sub-info left">
-        <table>
-          <tbody>
-            <tr>
-              <td v-for="(entry, i) in sortedList" :key="i">
-                {{ entry.name }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+  <div>
+    <Navsection />
+    <div class="currentSession">
+      <div class="info">
+        <div class="sub-info left">
+          <table>
+            <tbody>
+              <tr>
+                <td v-for="(entry, i) in sortedList" :key="i">
+                  {{ entry.name }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="sub-info right">
+          <select name="cars" id="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
       </div>
-      <div class="sub-info right">
-        <select name="cars" id="cars">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
-        </select>
-      </div>
-    </div>
-    <div class="bingometer"><VueSpeedometer /></div>
-    <div class="info">
-      <div class="sub-info leftbottom">
-        <p><b>Session Binge Length: 5hrs</b></p>
-      </div>
-      <div class="sub-info rightbottom">
-        <p><b>Time Left: 1hr</b></p>
+      <!-- <div class="bingometer"><VueSpeedometer /></div> -->
+      <div class="info">
+        <div class="sub-info leftbottom">
+          <p><b>Session Binge Length: 5hrs</b></p>
+        </div>
+        <div class="sub-info rightbottom">
+          <p><b>Time Left: 1hr</b></p>
+        </div>
       </div>
     </div>
   </div>
@@ -35,10 +38,11 @@
 
 <script>
 import VueSpeedometer from "vue-speedometer";
+import Navsection from "@/components/Navsection.vue";
 
 export default {
   name: "watchPattern",
-  components: { VueSpeedometer },
+  components: { VueSpeedometer, Navsection },
   template: `
     <div :style="styles">
       <vue-speedometer 

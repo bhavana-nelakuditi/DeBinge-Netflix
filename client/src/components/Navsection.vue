@@ -1,30 +1,23 @@
 <template>
-  <nav v-if="signingIn">
+  <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/watchPattern">SHOWTIME</router-link> |
     <router-link to="/social">Social</router-link> |
-    <router-link to="/currentSession">Bing-O-Meter</router-link> |
+    <router-link to="/currentSession">Binge-O-Meter</router-link> |
     <router-link to="/progress">How You Doin'?</router-link>
   </nav>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      signingIn: false,
-    };
-  },
-};
-</script>
+<script></script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: AppleSymbols;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  font-size: 20px;
 }
 
 nav {

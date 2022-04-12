@@ -1,11 +1,14 @@
 <template>
-  <div class="progress">
-    <Progress />
-    <BarChart
-      :dataGraphKeys="graphKeys"
-      :dataGraph="data2graph"
-      directionAxis="vertical"
-    />
+  <div>
+    <div class="progress">
+      <Navsection />
+      <Progress />
+      <BarChart
+        :dataGraphKeys="graphKeys"
+        :dataGraph="data2graph"
+        directionAxis="vertical"
+      />
+    </div>
   </div>
 </template>
 
@@ -13,12 +16,14 @@
 // @ is an alias to /src
 import Progress from "@/components/Progress.vue";
 import BarChart from "@/components/BarChart.vue";
+import Navsection from "@/components/Navsection.vue";
 
 export default {
   name: "progressView",
   components: {
     Progress,
     BarChart,
+    Navsection,
   },
   data() {
     return {

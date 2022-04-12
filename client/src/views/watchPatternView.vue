@@ -1,52 +1,61 @@
 <template>
-  <div class="watchPattern">
-    <div class="splitScreen leftScreen">
-      <div class="filter">
-        <div class="sub-info"></div>
-        <div class="sub-info"></div>
-        <div class="sub-info">
-          <select name="shows" id="shows">
-            <option value="genre">All</option>
-            <option v-for="data in data2graph" :key="data.genre" value="genre">
-              {{ data.genre }}
-            </option>
-          </select>
+  <div>
+    <Navsection />
+    <div class="watchPattern">
+      <div class="splitScreen leftScreen">
+        <div class="filter">
+          <div class="sub-info"></div>
+          <div class="sub-info"></div>
+          <div class="sub-info">
+            <select name="shows" id="shows">
+              <option value="genre">All</option>
+              <option
+                v-for="data in data2graph"
+                :key="data.genre"
+                value="genre"
+              >
+                {{ data.genre }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="graphArea">
+          <BarChart
+            :dataGraphKeys="graphKeys"
+            :dataGraph="data2graph"
+            directionAxis="horizontal"
+          />
         </div>
       </div>
-      <div class="graphArea">
-        <BarChart
-          :dataGraphKeys="graphKeys"
-          :dataGraph="data2graph"
-          directionAxis="horizontal"
-        />
+      <div class="splitScreen rightScreen">
+        <table class="tableCSS" id="customers">
+          <tbody>
+            <!-- <tr> -->
+            <tr>
+              <th>Name</th>
+              <th>Hours</th>
+            </tr>
+            <tr v-for="(data, i) in data2graph" :key="i">
+              <td>{{ data.name }}</td>
+              <td>{{ data.hours }}</td>
+            </tr>
+            <!-- </tr> -->
+          </tbody>
+        </table>
       </div>
-    </div>
-    <div class="splitScreen rightScreen">
-      <table class="tableCSS" id="customers">
-        <tbody>
-          <!-- <tr> -->
-          <tr>
-            <th>Name</th>
-            <th>Hours</th>
-          </tr>
-          <tr v-for="(data, i) in data2graph" :key="i">
-            <td>{{ data.name }}</td>
-            <td>{{ data.hours }}</td>
-          </tr>
-          <!-- </tr> -->
-        </tbody>
-      </table>
     </div>
   </div>
 </template>
 
 <script>
+import Navsection from "@/components/Navsection.vue";
 import BarChart from "@/components/BarChart.vue";
 
 export default {
   name: "watchPattern",
   components: {
     BarChart,
+    Navsection,
   },
   data() {
     var data2graph = [

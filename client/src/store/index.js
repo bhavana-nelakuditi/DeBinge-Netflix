@@ -6,8 +6,6 @@ export default createStore({
   },
   getters: {
     SIGNING_IN: (state) => {
-      console.log(state);
-      console.log(state.signingIn);
       return state.signingIn;
     },
   },
