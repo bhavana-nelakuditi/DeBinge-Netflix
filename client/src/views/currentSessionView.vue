@@ -8,29 +8,32 @@
             <tbody>
               <tr>
                 <td v-for="(entry, i) in allScores" :key="i">
-                  {{ entry.imageLocation }}
-                  <img v-bind:src="entry.imageLocation" />
+                  <img :src="entry.imageLocation" width="150" height="180" />
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="sub-info right">
-          <select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+          <p>Please select binge date:</p>
+          <select v-model="selected" @change="onChange()" id="shows">
+            <option v-for="option in options" :value="option.value">
+              {{ option.text }}
+            </option>
           </select>
         </div>
       </div>
-      <!-- <div class="bingometer"><VueSpeedometer /></div> -->
+      <div class="bingometer"><h1>SAKETH</h1></div>
       <div class="info">
         <div class="sub-info leftbottom">
-          <p><b>Session Binge Length: 5hrs</b></p>
+          <p>
+            <b>Session Binge Length: {{ bingeLength }}hrs</b>
+          </p>
         </div>
         <div class="sub-info rightbottom">
-          <p><b>Time Left: 1hr</b></p>
+          <p>
+            <b>Time Left: {{ timeLeft }}hr</b>
+          </p>
         </div>
       </div>
     </div>
@@ -38,41 +41,132 @@
 </template>
 
 <script>
-import VueSpeedometer from "vue-speedometer";
 import Navsection from "@/components/Navsection.vue";
 
 export default {
   name: "watchPattern",
-  components: { VueSpeedometer, Navsection },
-  template: `
-    <div :style="styles">
-      <vue-speedometer 
-        :fluidWidth="true"
-        :minValue="100"
-        :maxValue="500"
-        :value="473"
-        needleColor="steelblue"
-      />
-      <div>
-      Fluid width takes the width of the parent div (<strong>500px</strong> in this case)
-      </div>
-    </div>
-  `,
-  data: () => ({
-    name: "",
-    score: "",
-    allScores: [
-      { name: "Crown", imageLocation: "../assets/Crown.jpeg" },
-      { name: "Game of Thrones", imageLocation: "../assets/GoT.jpeg" },
-      { name: "You", imageLocation: "../assets/You.jpeg" },
-      { name: "Kota Factory", imageLocation: "../assets/Kota.jpeg" },
-      { name: "HIMYM", imageLocation: "../assets/HIMYM.jpeg" },
-    ],
-  }),
+  components: { Navsection },
+  data() {
+    return {
+      bingeLength: 5,
+      timeLeft: 1,
+      selected: "04/12/2022",
+      options: [
+        {
+          text: "04/12/2022",
+          value: "04/12/2022",
+          bingeLength: 5,
+          timeLeft: 1,
+        },
+        {
+          text: "04/11/2022",
+          value: "04/11/2022",
+          bingeLength: 3,
+          timeLeft: 3,
+        },
+        {
+          text: "04/10/2022",
+          value: "04/10/2022",
+          bingeLength: 7,
+          timeLeft: 0,
+        },
+        {
+          text: "04/09/2022",
+          value: "04/09/2022",
+          bingeLength: 4,
+          timeLeft: 2,
+        },
+        {
+          text: "04/08/2022",
+          value: "04/08/2022",
+          bingeLength: 5,
+          timeLeft: 1,
+        },
+        {
+          text: "04/07/2022",
+          value: "04/07/2022",
+          bingeLength: 3,
+          timeLeft: 3,
+        },
+        {
+          text: "04/06/2022",
+          value: "04/06/2022",
+          bingeLength: 8,
+          timeLeft: 0,
+        },
+        {
+          text: "04/05/2022",
+          value: "04/05/2022",
+          bingeLength: 4,
+          timeLeft: 2,
+        },
+        {
+          text: "04/04/2022",
+          value: "04/04/2022",
+          bingeLength: 1,
+          timeLeft: 5,
+        },
+        {
+          text: "04/03/2022",
+          value: "04/03/2022",
+          bingeLength: 3,
+          timeLeft: 2,
+        },
+        {
+          text: "04/02/2022",
+          value: "04/02/2022",
+          bingeLength: 6,
+          timeLeft: 0,
+        },
+        {
+          text: "04/01/2022",
+          value: "04/01/2022",
+          bingeLength: 9,
+          timeLeft: 0,
+        },
+      ],
+      allScores: [
+        {
+          name: "Crown",
+          imageLocation: require("../assets/Crown.jpeg"),
+          genre: "Drama",
+        },
+        {
+          name: "Game of Thrones",
+          imageLocation: require("../assets/GoT.jpeg"),
+          genre: "Action",
+        },
+        {
+          name: "You",
+          imageLocation: require("../assets/You.jpeg"),
+          genre: "Thriller",
+        },
+        {
+          name: "Kota Factory",
+          imageLocation: require("../assets/Kota.jpeg"),
+          genre: "Drama",
+        },
+        {
+          name: "HIMYM",
+          imageLocation: require("../assets/HIMYM.jpeg"),
+          genre: "Sitcom",
+        },
+      ],
+    };
+  },
+  methods: {
+    onChange() {
+      this.options.forEach((element) => {
+        if (element.value == this.selected) {
+          this.bingeLength = element.bingeLength;
+          this.timeLeft = element.timeLeft;
+        }
+      });
+    },
+  },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .info {
   margin: 40px 0 0;
