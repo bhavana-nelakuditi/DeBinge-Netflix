@@ -7,8 +7,9 @@
           <table>
             <tbody>
               <tr>
-                <td v-for="(entry, i) in sortedList" :key="i">
-                  {{ entry.name }}
+                <td v-for="(entry, i) in allScores" :key="i">
+                  {{ entry.imageLocation }}
+                  <img v-bind:src="entry.imageLocation" />
                 </td>
               </tr>
             </tbody>
@@ -61,19 +62,13 @@ export default {
     name: "",
     score: "",
     allScores: [
-      { name: "cows", score: 10 },
-      { name: "csts", score: 10 },
-      { name: "dogs", score: 10 },
-      { name: "fish", score: 10 },
+      { name: "Crown", imageLocation: "../assets/Crown.jpeg" },
+      { name: "Game of Thrones", imageLocation: "../assets/GoT.jpeg" },
+      { name: "You", imageLocation: "../assets/You.jpeg" },
+      { name: "Kota Factory", imageLocation: "../assets/Kota.jpeg" },
+      { name: "HIMYM", imageLocation: "../assets/HIMYM.jpeg" },
     ],
   }),
-  computed: {
-    sortedList: function () {
-      return this.allScores.slice().sort(function (a, b) {
-        return b.score - a.score;
-      });
-    },
-  },
 };
 </script>
 
