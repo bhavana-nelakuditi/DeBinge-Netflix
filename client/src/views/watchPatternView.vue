@@ -26,7 +26,6 @@
       <div class="splitScreen rightScreen">
         <table class="tableCSS" id="customers">
           <tbody>
-            <!-- <tr> -->
             <tr>
               <th>Name</th>
               <th>Hours</th>
@@ -35,7 +34,6 @@
               <td>{{ data.name }}</td>
               <td>{{ data.hours }}</td>
             </tr>
-            <!-- </tr> -->
           </tbody>
         </table>
       </div>
