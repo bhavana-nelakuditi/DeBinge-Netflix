@@ -21,6 +21,62 @@ export default defineComponent({
     Bubble,
   },
   props: {
+    chartData: {
+      type: Object,
+      default: {
+        datasets: [
+          {
+            label: "Saketh",
+            backgroundColor: "#f87979",
+            data: [
+              {
+                x: 20,
+                y: 25,
+                r: 25,
+              },
+              {
+                x: 40,
+                y: 10,
+                r: 10,
+              },
+              {
+                x: 30,
+                y: 22,
+                r: 22,
+              },
+            ],
+          },
+          {
+            label: "Tom",
+            backgroundColor: "#7C8CF8",
+            data: [
+              {
+                x: 10,
+                y: 15,
+                r: 15,
+              },
+              {
+                x: 20,
+                y: 10,
+                r: 10,
+              },
+              {
+                x: 15,
+                y: 30,
+                r: 30,
+              },
+            ],
+          },
+        ],
+      },
+    },
+    chartOptions: {
+      type: Object,
+      default: {
+        responsive: true,
+        maintainAspectRatio: false,
+      },
+    },
     chartId: {
       type: String,
       default: "bubble-chart",
@@ -47,62 +103,10 @@ export default defineComponent({
     },
   },
   setup(props) {
-    const chartData = {
-      datasets: [
-        {
-          label: "Saketh",
-          backgroundColor: "#f87979",
-          data: [
-            {
-              x: 20,
-              y: 25,
-              r: 25,
-            },
-            {
-              x: 40,
-              y: 10,
-              r: 10,
-            },
-            {
-              x: 30,
-              y: 22,
-              r: 22,
-            },
-          ],
-        },
-        {
-          label: "Tom",
-          backgroundColor: "#7C8CF8",
-          data: [
-            {
-              x: 10,
-              y: 15,
-              r: 15,
-            },
-            {
-              x: 20,
-              y: 10,
-              r: 10,
-            },
-            {
-              x: 15,
-              y: 30,
-              r: 30,
-            },
-          ],
-        },
-      ],
-    };
-
-    const chartOptions = {
-      responsive: true,
-      maintainAspectRatio: false,
-    };
-
     return () =>
       h(Bubble, {
-        chartData,
-        chartOptions,
+        chartData: props.chartData,
+        chartOptions: props.chartOptions,
         chartId: props.chartId,
         width: props.width,
         height: props.height,
