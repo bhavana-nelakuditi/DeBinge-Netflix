@@ -3,7 +3,12 @@
     <Navsection v-if="this.LoggedIn == true" />
     <h1 style="color: #e50914">De-Binge netflix</h1>
     <h3 v-if="this.LoggedIn == true">Are you still watching?</h3>
-    <button @click="loginTrigger" v-if="this.LoggedIn == false">
+    <h3 v-if="this.loginType == 'demo'">Welcome to the project demo!</h3>
+    <h3 v-if="this.loginType == 'project'">
+      Welcome to the project!<br />Please Sign Out and select 'Demo' profile for
+      a complete demo
+    </h3>
+    <button @click="loginTrigger('demo')" v-if="this.LoggedIn == false">
       <img
         alt="Profile Image"
         src="../assets/netflix-profile.jpeg"
@@ -11,7 +16,7 @@
       />
       <p style="font-size: 24px">Demo</p>
     </button>
-    <button @click="loginTrigger" v-if="this.LoggedIn == false">
+    <button @click="loginTrigger('project')" v-if="this.LoggedIn == false">
       <img
         alt="Profile Image"
         src="../assets/netflix-profile.jpeg"
@@ -32,17 +37,22 @@ export default {
   },
   data() {
     return {
+      // loginType: this.$store.state.loginType,
       LoggedIn: this.$store.state.signingIn ? true : false,
     };
   },
   methods: {
-    loginTrigger() {
+    loginTrigger(loginType) {
       this.$store.dispatch("GET_SIGNING_IN", true);
+      this.$store.dispatch("GET_LOGIN_TYPE", loginType);
       this.LoggedIn = this.$store.state.signingIn;
+      this.loginType = loginType;
     },
   },
-  computed() {
+  created() {
+    this.$store.dispatch("GET_LOGIN_TYPE", "");
     this.LoggedIn = this.$store.state.signingIn;
+    // this.loginType = this.$store.state.loginType;
   },
 };
 </script>

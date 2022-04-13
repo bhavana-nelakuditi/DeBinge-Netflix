@@ -1,23 +1,36 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/watchPattern">Watch Pattern</router-link> |
-    <router-link to="/social">Social</router-link> |
-    <router-link to="/currentSession">Binge-O-Meter</router-link> |
-    <router-link to="/progress">How You Doin'?</router-link> |
-    <a href="" @click="loginTrigger">Sign Out</a>
-  </nav>
+  <div>
+    <nav v-if="this.loginType == 'demo'">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/watchPattern">Watch Pattern</router-link> |
+      <router-link to="/social">Social</router-link> |
+      <router-link to="/currentSession">Binge-O-Meter</router-link> |
+      <router-link to="/progress">How You Doin'?</router-link> |
+      <a href="" @click="loginTrigger">Sign Out</a>
+    </nav>
+    <nav v-if="this.loginType == 'project'">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/watchPattern">Watch Pattern</router-link> |
+      <router-link to="/social">Social</router-link> |
+      <router-link to="/currentSession">Binge-O-Meter</router-link> |
+      <router-link to="/progress">How You Doin'?</router-link> |
+      <a href="" @click="loginTrigger">Sign Out</a>
+    </nav>
+  </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return { loginType: this.$store.state.loginType };
   },
   methods: {
     loginTrigger() {
       this.$store.dispatch("GET_SIGNING_IN", false);
     },
+  },
+  created() {
+    this.loginType = this.$store.state.loginType;
   },
 };
 </script>
