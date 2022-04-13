@@ -650,15 +650,9 @@ export default {
   margin: 40px 0 0;
   height: 20%;
   width: 100%;
-  // display: flex;
 }
 .sub-info.left {
   width: 33%;
   display: inline-block;
-}
-.sub-info.right {
-  width: 33%;
-  display: inline-block;
-  min-height: 100% !important;
 }
 </style>
