@@ -37,7 +37,6 @@ export default {
   },
   data() {
     return {
-      // loginType: this.$store.state.loginType,
       LoggedIn: this.$store.state.signingIn ? true : false,
     };
   },
@@ -52,7 +51,6 @@ export default {
   created() {
     this.$store.dispatch("GET_LOGIN_TYPE", "");
     this.LoggedIn = this.$store.state.signingIn;
-    // this.loginType = this.$store.state.loginType;
   },
 };
 </script>
