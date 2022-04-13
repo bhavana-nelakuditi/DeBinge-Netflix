@@ -2,11 +2,10 @@
   <div class="home">
     <Navsection v-if="this.LoggedIn == true" />
     <h1 style="color: #e50914">De-Binge netflix</h1>
-    <h3 v-if="this.LoggedIn == true">Are you still watching?</h3>
     <h3 v-if="this.loginType == 'demo'">Welcome to the project demo!</h3>
     <h3 v-if="this.loginType == 'project'">
-      Welcome to the project!<br />Please Sign Out and select 'Demo' profile for
-      a complete demo
+      Welcome to the project!<br /><br />For project demo: Please Sign Out and
+      select 'Demo' profile
     </h3>
     <button @click="loginTrigger('demo')" v-if="this.LoggedIn == false">
       <img
