@@ -4,11 +4,23 @@
     <router-link to="/watchPattern">Watch Pattern</router-link> |
     <router-link to="/social">Social</router-link> |
     <router-link to="/currentSession">Binge-O-Meter</router-link> |
-    <router-link to="/progress">How You Doin'?</router-link>
+    <router-link to="/progress">How You Doin'?</router-link> |
+    <a href="" @click="loginTrigger">Sign Out</a>
   </nav>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    loginTrigger() {
+      this.$store.dispatch("GET_SIGNING_IN", false);
+    },
+  },
+};
+</script>
 
 <style lang="scss">
 #app {
@@ -22,7 +34,6 @@
 
 nav {
   padding: 30px;
-
   a {
     font-weight: bold;
     color: #2c3e50;
