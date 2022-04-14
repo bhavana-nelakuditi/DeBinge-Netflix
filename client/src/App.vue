@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +23,17 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
+body {
+  margin: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #E50914;
+  text-align: left;
+  background-color: #141414;
+}
 nav {
   padding: 30px;
 
