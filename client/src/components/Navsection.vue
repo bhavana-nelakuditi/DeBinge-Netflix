@@ -6,15 +6,17 @@
       <router-link to="/social">Social</router-link> |
       <router-link to="/currentSession">Binge-O-Meter</router-link> |
       <router-link to="/progress">How You Doin'?</router-link> |
-      <a href="" @click="loginTrigger">Sign Out</a>
+      <a href="/" @click="loginTrigger">Sign Out</a>
     </nav>
     <nav v-if="this.loginType == 'project'">
       <router-link to="/">Home</router-link> |
-      <!-- <router-link to="/watchPattern">Watch Pattern</router-link> |
-      <router-link to="/social">Social</router-link> |
-      <router-link to="/currentSession">Binge-O-Meter</router-link> |
-      <router-link to="/progress">How You Doin'?</router-link> | -->
-      <a href="" @click="loginTrigger">Sign Out</a>
+      <router-link to="/reqGathering">Requirements</router-link> |
+      <router-link to="/designSketch">Sketch Diary</router-link>
+      |
+      <router-link to="/formativeCog">Formative Evaluation</router-link>
+      | <router-link to="/conclusion">Conclusion</router-link> |
+      <router-link to="/contribution">Individual Contributions</router-link> |
+      <a href="/" @click="loginTrigger">Sign Out</a>
     </nav>
   </div>
 </template>
