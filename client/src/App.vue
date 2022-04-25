@@ -32,7 +32,8 @@ body {
   line-height: 1.5;
   color: #E50914;
   text-align: left;
-  background-color: #141414;
+  //background-color: #141414;
+  background-color: #F5F5F1;
 }
 nav {
   padding: 30px;

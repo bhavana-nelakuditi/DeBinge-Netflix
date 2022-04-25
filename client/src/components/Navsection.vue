@@ -36,6 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500&display=swap');
 #app {
   font-family: AppleSymbols;
   -webkit-font-smoothing: antialiased;
@@ -46,10 +47,14 @@ export default {
 }
 
 nav {
+  background-color: #221f1f;
   padding: 30px;
+  font-family: 'Darker Grotesque', sans-serif;
+  
   a {
     font-weight: bold;
-    color: #2c3e50;
+    //color: #2c3e50;
+    color: #F5F5F1;
 
     &.router-link-exact-active {
       color: #42b983;
