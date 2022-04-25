@@ -1,9 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
 <template>
   <div>
     <Navsection />
     <div class="currentSession">
-      <div class="row1">
-        
+      <div class="info">
+        <div class="sub-info left">
           <table>
             <tbody>
               <tr style="align-items: center">
@@ -19,31 +31,37 @@
               </tr>
             </tbody>
           </table>
-        
+        </div>
+        <!-- <div class="sub-info right">
+          <p>Please select binge date:</p>
+          <select v-model="selected" @change="onChange()" id="shows">
+            <option v-for="option in options" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select>
+        </div> -->
       </div>
-
-      <div class="row">
-            <div class="column  left" >
-                
-                <img  alt="Binge-o-meter" src="../assets/image.jpg" />
-     
-            </div>
-            <div class="column  right" >
-              <ul>
+      <div class="middle">
+      <div class="sub-info left">
+      <div class="bingometer">
+        <img id="#pic" alt="Binge-o-meter" src="../assets/speedometer.jpeg" />
+      </div>
+      </div>
+      <div class="sub-info right">
+          <!-- <p>Please select binge date:</p>
+          <select v-model="selected" @change="onChange()" id="shows">
+            <option v-for="option in options" :value="option.value">
+              {{ option.text }}
+            </option>
+          </select> -->
+          <ul>
   <li><a href="/tag/word1" data-weight="3">Word1</a></li>
-  <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-  <li><a href="/tag/word3" data-weight="4">Word3</a></li>
-  <li><a href="/tag/word1" data-weight="3">Word1</a></li><br>
-  <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-  <li><a href="/tag/word3" data-weight="4">Word3</a></li>
-  <li><a href="/tag/word1" data-weight="3">Word1</a></li><br>
   <li><a href="/tag/word2" data-weight="7">Word2</a></li>
   <li><a href="/tag/word3" data-weight="4">Word3</a></li>
   
 </ul>
-            </div>
+        </div>
       </div>
-      
       <div class="info">
         <div class="sub-info leftbottom">
           <p>
@@ -57,8 +75,7 @@
         </div>
       </div>
     </div>
-     
- </div>
+  </div>
 </template>
 
 <script>
@@ -189,55 +206,39 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.column {
-  //float: left;
-  padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+.middle{
+  width: 100%;
 }
-
-.left {
-  width: 50%;
-  padding-top: 30px;
-  padding-left: 30px;
-}
-
-.right {
-  width: 50%;
-  padding-top: 80px;
-}
-
-.row{
-  display : flex;
-}
-
-.row1{
-  display : flex;
-  margin-top: 30px;
-  overflow-x: auto;
-  overflow: hidden;
-}
-
-
 .info {
   margin: 40px 0 0;
   height: 20%;
   width: 100%;
   display: flex;
 }
+.sub-info.left {
+  width: 70%;
+  display: inline-block;
+  //overflow: scroll;
+  margin-top: 50px;
+}
+.sub-info.right {
+  width: 30%;
+  display: inline-block;
+  min-height: 100% !important;
+  
+}
 .sub-info.leftbottom {
   width: 50%;
   display: inline-block;
-  
 }
 .sub-info.rightbottom {
   width: 50%;
   display: inline-block;
   min-height: 100% !important;
-  
 }
 .bingometer {
-  //width: 100%;
-  //height: 400px;
+  width: 100%;
+  height: 400px;
   display: inline-block;
 }
 h3 {

@@ -1,4 +1,4 @@
-<template>
+<template id="bg"> 
   <div>
     <Navsection />
     <div class="watchPattern">
@@ -54,8 +54,9 @@ export default {
         datasets: [
           {
             label: "TV Shows",
-            backgroundColor: "#f87979",
+            backgroundColor: "red",
             data: [5, 9, 15, 7, 2],
+
           },
         ],
       },
@@ -118,6 +119,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+#bg{
+ background:black
+}
 .watchPattern {
   margin: 40px 0 0 0;
   width: 100%;
@@ -133,7 +137,8 @@ export default {
   width: 25%;
   margin: 0 10px 0 10px;
   display: inline-block;
-  border: 1px solid green;
+  //border: 1px solid green;
+  //border: 3px solid black;
   min-height: 100% !important;
 }
 .tableCSS {
@@ -163,7 +168,7 @@ export default {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04aa6d;
+  background-color: #0a0a0a;
   color: white;
 }
 .filter {
