@@ -3,11 +3,44 @@
     <Navsection v-if="this.LoggedIn == true" />
     <h1 style="color: #e50914;">De-Binge Netflix</h1>
     <!-- h3 v-if="this.loginType == 'demo'">Welcome to the project demo!</h3--->
-    <div class = "mood" v-if="this.loginType == 'demo'">
-      <p> Hi Alex, How are you feeling today?</p>
-    </div>
-    <div class = "mood" >
-      <p> Hi Alex, How are you not feeling today?</p>
+    <div class = "homescreen" v-if="this.loginType == 'demo'">
+    <div class = "linkNavigation" >
+      <div class="row">
+        <br>
+        <div class="column">
+          <router-link to="/watchPattern">
+          <img src="../assets/bargraphic.jpg" alt="Watch Pattern">
+            <div class="centered">Centered</div> 
+          </router-link>
+        </div>
+        <div class="column">
+          <router-link to="/social">
+          <img src="../assets/socialgraphic.jpg" alt="Social">
+          <div class="centered">Centered</div>
+          </router-link>
+        </div>
+        <div class="column">
+          <router-link to="/currentSession">
+          <img src="../assets/bingegraphic.jpg" alt="Binge-o-meter">
+            <div class="centered">Centered</div> 
+          </router-link>
+        </div>
+        <div class="column">
+          <router-link to="/progress">
+          <img src="../assets/bargraphic.jpg" alt="How You doin'?">
+            <div class="centered">Centered</div>
+          </router-link>
+        </div>
+      </div>
+      </div>
+    <br>
+      <p> Hi Alex, How are you feeling today?
+        Implement a mood checker!
+      </p>
+    <br>
+      <p> Find your activity : Suggest them alternative activities
+      </p>
+    
     </div>
     <h3 v-if="this.loginType == 'project'">
       Welcome to the project!<br /><br />For project demo: Please Sign Out and
@@ -84,7 +117,7 @@ a {
   color: #42b983;
 }
 button {
-  background-color: #141414;;
+  background-color: #F5F5F1;;
   border: 0px;
   padding: 20px 20px;
   
@@ -93,13 +126,13 @@ p {
   font-family: 'Arial Bold';
   color: blue;
 }
-.mood1 {
-  background-color: #F5F5F1;
-  border: 0px;
-  padding: 10px 20px;
-  border-spacing: 10cm;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
+.linkNavigation {
+  //background-color: #141414;
+  color: #141414;
+  img {
+    filter: blur(3px);
+    -webkit-filter: blur(1px);
+  }
 }
 .mood {
   width: 60%;
@@ -110,5 +143,33 @@ p {
   color: #039;
   display: grid;
   grid-template-columns: auto auto ;/* this make content center*/
+}
+.column {
+  float: left;
+  width: 25%;
+  position: relative;
+  text-align: center;
+  color: white;
+  border:#141414;
+    img {
+    float: left;
+    width:  450px;
+    height: 800px;
+    
+    object-fit:contain;
+  }
+  
+}
+.centered {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 </style>
