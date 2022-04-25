@@ -3,7 +3,7 @@
     <Navsection v-if="this.LoggedIn == true" />
     <h1 style="color: #e50914;">De-Binge Netflix</h1>
     <!-- h3 v-if="this.loginType == 'demo'">Welcome to the project demo!</h3--->
-    <div class = "mood" >
+    <div class = "mood" v-if="this.loginType == 'demo'">
       <p> Hi Alex, How are you feeling today?</p>
     </div>
     <div class = "mood" >
@@ -41,7 +41,9 @@ export default {
     Navsection,
   },
   data() {
+    var loginType = "";
     return {
+      loginType: loginType,
       LoggedIn: this.$store.state.signingIn ? true : false,
     };
   },

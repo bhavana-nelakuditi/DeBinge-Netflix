@@ -23,16 +23,18 @@
           </select>
         </div>
       </div>
-      <div class="bingometer"><h1>SAKETH</h1></div>
+      <div class="bingometer">
+        <img alt="Binge-o-meter" src="../assets/speedometer.jpeg" />
+      </div>
       <div class="info">
         <div class="sub-info leftbottom">
           <p>
-            <b>Session Binge Length: {{ bingeLength }}hrs</b>
+            <b>Session Binge Length: {{ bingeLength }} mins</b>
           </p>
         </div>
         <div class="sub-info rightbottom">
           <p>
-            <b>Time Left: {{ timeLeft }}hr</b>
+            <b>Time Left: {{ timeLeft }} mins</b>
           </p>
         </div>
       </div>
@@ -48,15 +50,15 @@ export default {
   components: { Navsection },
   data() {
     return {
-      bingeLength: 5,
-      timeLeft: 1,
+      bingeLength: 200,
+      timeLeft: 10,
       selected: "04/12/2022",
       options: [
         {
           text: "04/12/2022",
           value: "04/12/2022",
-          bingeLength: 5,
-          timeLeft: 1,
+          bingeLength: 200,
+          timeLeft: 10,
         },
         {
           text: "04/11/2022",
