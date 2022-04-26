@@ -146,7 +146,7 @@ export default {
     Navsection,
   },
   data() {
-    var loginType = "";
+    // var loginType = this.$store.state.loginType;
     var moodSelected = false;
     var suggestedMoodHealer = "";
     var activityCards = [
@@ -166,8 +166,8 @@ export default {
       { activity: "Guitar", img: require("../assets/timeicon.png"), time: 60 },
     ];
     return {
-      loginType: loginType,
-      LoggedIn: this.$store.state.signingIn ? true : false,
+      loginType: this.$store.state.loginType,
+      LoggedIn: this.$store.state.signingIn,
       moodSelected: moodSelected,
       suggestedMoodHealer: suggestedMoodHealer,
       activityCards: activityCards,
@@ -178,7 +178,8 @@ export default {
       this.$store.dispatch("GET_SIGNING_IN", true);
       this.$store.dispatch("GET_LOGIN_TYPE", loginType);
       this.LoggedIn = this.$store.state.signingIn;
-      this.loginType = loginType;
+      this.loginType = this.$store.state.loginType;
+      console.log(this.$store.state.loginType);
     },
     showSuggestion(moodStatus) {
       this.moodSelected = true;
@@ -362,10 +363,10 @@ p {
   margin: 10px;
 }
 .row button {
-  background: #F8D9FB;
-  background: -moz-linear-gradient(45deg, #F8D9FB 0%, #FFFFFF 100%);
-  background: -webkit-linear-gradient(45deg, #F8D9FB 0%, #FFFFFF 100%);
-  background: linear-gradient(45deg, #F8D9FB 0%, #FFFFFF 100%);
+  background: #f8d9fb;
+  background: -moz-linear-gradient(45deg, #f8d9fb 0%, #ffffff 100%);
+  background: -webkit-linear-gradient(45deg, #f8d9fb 0%, #ffffff 100%);
+  background: linear-gradient(45deg, #f8d9fb 0%, #ffffff 100%);
   margin-right: 16px;
 }
 .sub-info-mid {
