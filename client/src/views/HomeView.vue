@@ -7,7 +7,7 @@
       <div class="linkNavigation">
         <div class="row">
           <p>Hi Alex, How are you feeling today?</p>
-          <div class="splitScreen leftScreen">
+          <div class="splitScreen leftScreen" style="margin-top: 100px">
             <div class="sub-info-mid" />
             <div class="sub-info-mid">
               <div class="row">
