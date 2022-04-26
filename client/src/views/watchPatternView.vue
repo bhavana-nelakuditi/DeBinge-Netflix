@@ -12,7 +12,7 @@
               v-model="option.enabled"
               :onLabel="option.text"
               :offLabel="option.text"
-              class = "toggle-blue"
+              class="toggle-blue"
             />
           </div>
           <div class="sub-info"></div>
