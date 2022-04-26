@@ -14,13 +14,7 @@
             />
           </div>
           <div class="sub-info"></div>
-          <div class="sub-info">
-            <select v-model="selected" @change="onChange()" id="shows">
-              <option v-for="option in options" :value="option.value">
-                {{ option.text }}
-              </option>
-            </select>
-          </div>
+          <div class="sub-info"></div>
         </div>
         <div class="graphArea">
           <BarChart :chartData="chartData" />
@@ -59,7 +53,6 @@ export default {
   },
   data() {
     return {
-      selected: "All",
       chartData: {
         labels: ["Crown", "Game of Thrones", "You", "Kota Factory", "HIMYM"],
         datasets: [
@@ -78,7 +71,6 @@ export default {
         { name: "HIMYM", hours: 2, genre: "Sitcom" },
       ],
       options: [
-        { text: "All", value: "All" },
         { text: "Drama", value: "Drama" },
         { text: "Action", value: "Action" },
         { text: "Thriller", value: "Thriller" },

@@ -1,52 +1,51 @@
 <template>
   <div class="home">
     <Navsection v-if="this.LoggedIn == true" />
-    <h1 style="color: #e50914;">De-Binge Netflix</h1>
+    <h1 style="color: #e50914">De-Binge Netflix</h1>
     <!-- h3 v-if="this.loginType == 'demo'">Welcome to the project demo!</h3--->
-    <div class = "homescreen" v-if="this.loginType == 'demo'">
-    <div class = "linkNavigation" >
-      <div class="row">
-        <br>
-        <div class="column">
-          <router-link to="/watchPattern">
-          <img src="../assets/bargraphic.jpg" alt="Watch Pattern">
-            <div class="centered">Centered</div> 
-          </router-link>
-        </div>
-        <div class="column">
-          <router-link to="/social">
-          <img src="../assets/socialgraphic.jpg" alt="Social">
-          <div class="centered">Centered</div>
-          </router-link>
-        </div>
-        <div class="column">
-          <router-link to="/currentSession">
-          <img src="../assets/bingegraphic.jpg" alt="Binge-o-meter">
-            <div class="centered">Centered</div> 
-          </router-link>
-        </div>
-        <div class="column">
-          <router-link to="/progress">
-          <img src="../assets/bargraphic.jpg" alt="How You doin'?">
-            <div class="centered">Centered</div>
-          </router-link>
+    <div class="homescreen" v-if="this.loginType == 'demo'">
+      <div class="linkNavigation">
+        <div class="row">
+          <p>Hi Alex, How are you feeling today?</p>
+          <div class="splitScreen leftScreen">
+            <div class="sub-info-mid" />
+            <div class="sub-info-mid">
+              <div class="row">
+                <div class="sub-info-submid">
+                  <button type="button" class="button-mood">Click Me!</button>
+                </div>
+                <div class="sub-info-submid">
+                  <button type="button" class="button-mood">Click Me!</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="sub-info-submid">
+                  <button type="button" class="button-mood">Click Me!</button>
+                </div>
+                <div class="sub-info-submid">
+                  <button type="button" class="button-mood">Click Me!</button>
+                </div>
+              </div>
+
+              <!-- <button type="button" class="button-mood">Click Me!</button>
+              <button type="button" class="button-mood">Click Me!</button> -->
+            </div>
+            <div class="sub-info-mid" />
+          </div>
         </div>
       </div>
-      </div>
-    <br>
-      <p> Hi Alex, How are you feeling today?
-        Implement a mood checker!
-      </p>
-    <br>
-      <p> Find your activity : Suggest them alternative activities
-      </p>
-    
+      <!-- <br />
+      <p>Find your activity : Suggest them alternative activities</p> -->
     </div>
     <h3 v-if="this.loginType == 'project'">
       Welcome to the project!<br /><br />For project demo: Please Sign Out and
       select 'Demo' profile
     </h3>
-    <button @click="loginTrigger('demo')" v-if="this.LoggedIn == false">
+    <button
+      class="button-profile"
+      @click="loginTrigger('demo')"
+      v-if="this.LoggedIn == false"
+    >
       <img
         alt="Profile Image"
         src="../assets/netflix-profile.jpeg"
@@ -54,7 +53,11 @@
       />
       <p style="font-size: 24px">Demo</p>
     </button>
-    <button @click="loginTrigger('project')" v-if="this.LoggedIn == false">
+    <button
+      class="button-profile"
+      @click="loginTrigger('project')"
+      v-if="this.LoggedIn == false"
+    >
       <img
         alt="Profile Image"
         src="../assets/netflix-avatar.png"
@@ -96,9 +99,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans&display=swap");
 h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   font-weight: 100;
   font-size: 60px;
 }
@@ -116,15 +119,14 @@ li {
 a {
   color: #42b983;
 }
-button {
-  background-color: #F5F5F1;;
+.button-profile {
+  background-color: #f5f5f1;
   border: 0px;
   padding: 20px 20px;
-  
 }
 p {
-  font-family: 'Arial Bold';
-  color: blue;
+  font-family: "Arial Bold";
+  color: teal;
 }
 .linkNavigation {
   //background-color: #141414;
@@ -136,13 +138,13 @@ p {
 }
 .mood {
   width: 60%;
-  height:  80px;
-  background-color: #9FC;
+  height: 80px;
+  background-color: #9fc;
   margin-right: auto;
   margin-left: auto;
   color: #039;
   display: grid;
-  grid-template-columns: auto auto ;/* this make content center*/
+  grid-template-columns: auto auto; /* this make content center*/
 }
 .column {
   float: left;
@@ -150,15 +152,14 @@ p {
   position: relative;
   text-align: center;
   color: white;
-  border:#141414;
-    img {
+  border: #141414;
+  img {
     float: left;
-    width:  450px;
+    width: 450px;
     height: 800px;
-    
-    object-fit:contain;
+
+    object-fit: contain;
   }
-  
 }
 .centered {
   position: absolute;
@@ -171,5 +172,19 @@ p {
   content: "";
   display: table;
   clear: both;
+}
+.sub-info-mid {
+  width: 33%;
+  display: inline-block;
+}
+.sub-info-submid {
+  width: 50%;
+  display: inline-block;
+}
+.button-mood {
+  border-color: #000;
+  border: 1px;
+  border-radius: 25px;
+  padding: 20px 20px !important;
 }
 </style>
