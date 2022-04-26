@@ -2,90 +2,39 @@
   <div>
     <Navsection />
     <div class="currentSession">
-      <div class="row1">
-        
-          <table>
-            <tbody>
-              <!-- <tr style="align-items: center">
-                <td v-for="(entry, i) in allScores" :key="i">
-                  <img :src="entry.imageLocation" width="100" height="100" />
-                </td>
-                <td v-for="(entry, i) in allScores" :key="i">
-                  <img :src="entry.imageLocation" width="100" height="100" />
-                </td>
-                <td v-for="(entry, i) in allScores" :key="i">
-                  <img :src="entry.imageLocation" width="100" height="100" />
-                </td>
-              </tr> -->
-            </tbody>
-          </table>
-            
-        
-      </div>
-
       <div class="row">
-            <div class="column  left" >
-                
-                <img  alt="Binge-o-meter" src="../assets/Capture.png" width="500" height="300" />
-     <div class="info" >
-        <div class="sub-info leftbottom">
-          <b id="grad2">
-
-            <p id="grad1">Session Binge Length: {{ bingeLength }} mins</p>
-          </b>
-          <p>
-            <b>Time Left: {{ timeLeft }} mins</b>
-            </p>
-        <div id="grad1"></div>
-        </div>
+        <div class="column left">
+          <img
+            alt="Binge-o-meter"
+            src="../assets/Capture.png"
+            width="500"
+            height="300"
+          />
+          <div class="info">
+            <div class="sub-info leftbottom">
+              <b id="grad2">
+                <p id="grad1">Session Binge Length: {{ bingeLength }} mins</p>
+              </b>
+              <p>
+                <b>Time Left: {{ timeLeft }} mins</b>
+              </p>
+              <div id="grad1"></div>
             </div>
-          
-
+          </div>
+        </div>
         <div class="sub-info rightbottom">
-            <div class="column  right" >
-              <p>Hello</p>
-                <div v-for="(data, i) in data2graph" :key="i">
-              <div>{{ data.task }}</div>
-              <div>{{ data.time }}</div>
+          <div class="column right">
+            <p>Hello</p>
+            <div v-for="data in data2graph">
+              <p>{{ data.name }}</p>
+              <p>{{ data.Due }}</p>
             </div>
-              <ul>
-                <!-- <li> -->
-  <!-- <li><a href="/tag/word1" data-weight="3">Word1</a></li>
-  <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-  <li><a href="/tag/word3" data-weight="4">Word3</a></li>
-  <li><a href="/tag/word1" data-weight="3">Word1</a></li><br>
-  <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-  <li><a href="/tag/word3" data-weight="4">Word3</a></li>
-  <li><a href="/tag/word1" data-weight="3">Word1</a></li><br>
-  <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-  <li><a href="/tag/word3" data-weight="4">Word3</a></li> -->
-   <!-- <img  alt="Cloud" src="../assets/cloud.png"  width="500" height="300"/> -->
-  
-</ul>
-            </div>
-      </div>
-      
-      <!-- <div class="info" >
-        <div class="sub-info leftbottom">
-          <p id="grad1">
-            Session Binge Length: {{ bingeLength }} mins
-          </p>
-          <p>
-            <b>Time Left: {{ timeLeft }} mins</b>
-            </p>
-        <div id="grad1"></div>
-        </div>
-
-        <div class="sub-info rightbottom"> -->
-          <p>
-            <!-- <b>Time Left: {{ timeLeft }} mins</b> -->
-
-          </p>
+            <ul></ul>
+          </div>
         </div>
       </div>
     </div>
-     
- </div>
+  </div>
 </template>
 
 <script>
@@ -99,9 +48,9 @@ export default {
       bingeLength: 200,
       timeLeft: 10,
       selected: "04/12/2022",
-       data2graph: [
-        { name: "Finish HW2", Due: "12Pm, 04/26/2022"},
-        { name: "Work on Final Presentation", Due: "10Pm, 04/29/2022"  },
+      data2graph: [
+        { name: "Finish HW2", Due: "12Pm, 04/26/2022" },
+        { name: "Work on Final Presentation", Due: "10Pm, 04/29/2022" },
       ],
       options: [
         {
@@ -237,17 +186,16 @@ export default {
   padding-top: 80px;
 }
 
-.row{
-  display : flex;
+.row {
+  display: flex;
 }
 
-.row1{
-  display : flex;
+.row1 {
+  display: flex;
   margin-top: 30px;
   overflow-x: auto;
   overflow: hidden;
 }
-
 
 .info {
   margin: 40px 0 0;
@@ -258,13 +206,11 @@ export default {
 .sub-info.leftbottom {
   width: 50%;
   display: inline-block;
-  
 }
 .sub-info.rightbottom {
   width: 50%;
   display: inline-block;
   min-height: 100% !important;
-  
 }
 .bingometer {
   //width: 100%;
@@ -293,19 +239,18 @@ $width: calc(100px + 25%);
   //width: 300px;
 
   //padding-left: 30px
- // background-color: red; /* For browsers that do not support gradients */
- border-color : teal; 
- border-radius:25px; 
+  // background-color: red; /* For browsers that do not support gradients */
+  border-color: teal;
+  border-radius: 25px;
   //border-radius: 25px;
-border: 2px solid #73AD21;
- //border:10px;
- //width: 25%;
-  background-image: linear-gradient(to right, #d2e7d6 , #e5726a);
+  border: 2px solid #73ad21;
+  //border:10px;
+  //width: 25%;
+  background-image: linear-gradient(to right, #d2e7d6, #e5726a);
   margin-left: 20%;
-  
 }
-#grad2{
-    width: $width;
+#grad2 {
+  width: $width;
   padding-left: calc($width / 4);
 }
 .sugCard {
