@@ -6,9 +6,10 @@
         <div class="filter">
           <div class="sub-info">
             <Toggle
+              @change="onChange"
               v-for="option in options"
               :value="option.value"
-              v-model="value"
+              v-model="option.enabled"
               :onLabel="option.text"
               :offLabel="option.text"
             />
@@ -21,7 +22,7 @@
         </div>
       </div>
       <div class="splitScreen rightScreen">
-        <table class="tableCSS" id="customers">
+        <!-- <table class="tableCSS" id="customers">
           <tbody>
             <tr>
               <th>Name</th>
@@ -32,7 +33,7 @@
               <td>{{ data.hours }}</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </div>
     </div>
   </div>
@@ -71,12 +72,11 @@ export default {
         { name: "HIMYM", hours: 2, genre: "Sitcom" },
       ],
       options: [
-        { text: "Drama", value: "Drama" },
-        { text: "Action", value: "Action" },
-        { text: "Thriller", value: "Thriller" },
-        { text: "Sitcom", value: "Sitcom" },
+        { text: "Drama", value: "Drama", enabled: true },
+        { text: "Action", value: "Action", enabled: true },
+        { text: "Thriller", value: "Thriller", enabled: true },
+        { text: "Sitcom", value: "Sitcom", enabled: true },
       ],
-      value: true,
     };
   },
   methods: {
@@ -91,29 +91,43 @@ export default {
       this.chartData.labels = [];
       this.chartData.datasets[0].data = [];
       var data2graphLoop = [];
-      this.data2graph.forEach((element) => {
-        if (this.selected == element.genre) {
-          data2graphLoop.push(element);
-          this.chartData.labels.push(element.name);
-          this.chartData.datasets[0].data.push(element.hours);
-        } else if (this.selected == "All") {
-          data2graphLoop = [
-            { name: "Crown", hours: 5, genre: "Drama" },
-            { name: "Game of Thrones", hours: 9, genre: "Action" },
-            { name: "You", hours: 15, genre: "Thriller" },
-            { name: "Kota Factory", hours: 7, genre: "Drama" },
-            { name: "HIMYM", hours: 2, genre: "Sitcom" },
-          ];
-          this.chartData.labels = [
-            "Crown",
-            "Game of Thrones",
-            "You",
-            "Kota Factory",
-            "HIMYM",
-          ];
-          this.chartData.datasets[0].data = [5, 9, 15, 7, 2];
+      this.options.forEach((element) => {
+        console.log("element['enabled']" + element["enabled"]);
+        if (element["enabled"]) {
+          console.log("element['valuie']" + element["value"]);
+          this.data2graph.forEach((el) => {
+            console.log("el" + el);
+            console.log("el['genre']" + el["genre"]);
+            if (element["value"] == el["genre"]) {
+              data2graphLoop.push(el);
+              console.log("data2graphLoop" + data2graphLoop);
+            }
+          });
         }
       });
+      // this.data2graph.forEach((element) => {
+      //   if (this.selected == element.genre) {
+      //     data2graphLoop.push(element);
+      //     this.chartData.labels.push(element.name);
+      //     this.chartData.datasets[0].data.push(element.hours);
+      //   } else if (this.selected == "All") {
+      //     data2graphLoop = [
+      //       { name: "Crown", hours: 5, genre: "Drama" },
+      //       { name: "Game of Thrones", hours: 9, genre: "Action" },
+      //       { name: "You", hours: 15, genre: "Thriller" },
+      //       { name: "Kota Factory", hours: 7, genre: "Drama" },
+      //       { name: "HIMYM", hours: 2, genre: "Sitcom" },
+      //     ];
+      //     this.chartData.labels = [
+      //       "Crown",
+      //       "Game of Thrones",
+      //       "You",
+      //       "Kota Factory",
+      //       "HIMYM",
+      //     ];
+      //     this.chartData.datasets[0].data = [5, 9, 15, 7, 2];
+      //   }
+      // });
       this.data2graph = data2graphLoop;
     },
   },
@@ -129,16 +143,16 @@ export default {
   display: flex;
 }
 .splitScreen.leftScreen {
-  width: 70%;
+  width: 50%;
   height: 100%;
   margin: 0 10px 0 10px;
   display: inline-block;
 }
 .splitScreen.rightScreen {
-  width: 25%;
+  width: 50%;
   margin: 0 10px 0 10px;
   display: inline-block;
-  border: 1px solid green;
+  // border: 1px solid green;
   min-height: 100% !important;
 }
 .tableCSS {
