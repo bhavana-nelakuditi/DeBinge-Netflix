@@ -1,6 +1,13 @@
 <template>
   <div>
     <Navsection />
+    <a
+      id="popup-button"
+      class="button"
+      href="#popup1"
+      style="visibility: hidden"
+      >Let me Pop up</a
+    >
     <!-- <select v-model="selected" @change="onChange()" id="shows">
       <option v-for="option in options" :value="option.value">
         {{ option.text }}
@@ -13,6 +20,7 @@
       v-model="option.enabled"
       :onLabel="option.text"
       :offLabel="option.text"
+      class="toggle-blue"
     />
     <div class="info">
       <div
@@ -21,6 +29,16 @@
         :key="i"
       >
         <SocialBubble :chartData="chartData[i]" :chartOptions="chartOptions" />
+      </div>
+    </div>
+    <div id="popup1" class="overlay">
+      <div class="popup">
+        <h2>🥳 BADGE ALERT 🥳</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+          You have been awarded the <b>'Camper Badge'</b> <br /><br />
+          Continue staying away from Netlix for another hour to earn it again!
+        </div>
       </div>
     </div>
     <!-- <div class="info">
@@ -509,11 +527,6 @@ export default {
       selected: "All",
       options: [
         {
-          text: "Saketh",
-          value: "Saketh",
-          enabled: true,
-        },
-        {
           text: "Tom",
           value: "Tom",
           enabled: true,
@@ -670,6 +683,12 @@ export default {
       });
     },
   },
+  mounted() {
+    document.getElementById("popup-button").click();
+    // alert(
+    //   "🥳 BADGE ALERT 🥳\nYou have been awarded the 'Camper Badge'\nContinue staying away from Netlix for another hour to earn it again!"
+    // );
+  },
 };
 </script>
 
@@ -684,5 +703,68 @@ export default {
 .sub-info.left {
   width: 33%;
   display: inline-block;
+}
+.toggle-blue {
+  --toggle-width: 5rem;
+  margin: 10px;
+}
+//============================
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06d85f;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px) {
+  .box {
+    width: 70%;
+  }
+  .popup {
+    width: 70%;
+  }
 }
 </style>
