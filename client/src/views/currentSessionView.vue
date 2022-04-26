@@ -2,12 +2,48 @@
   <div>
     <Navsection />
     <div class="row">
-      <div class="sub-info left">
-        <ul>
-          <li><a href="/tag/word1" data-weight="3">Word1</a></li>
-          <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-          <li><a href="/tag/word3" data-weight="4">Word3</a></li>
-        </ul>
+      <div class="sub-info left" style="padding-left: 60px; padding-top: 50px">
+        <div>
+          <ul>
+            <br />
+            <li style="color: white">
+              <a href="/tag/word1" data-weight="3">04/15/2022</a>
+            </li>
+            <li><a href="/tag/word2" data-weight="7">04/12/2022</a></li>
+            <li><a href="/tag/word3" data-weight="4">04/09/2022</a></li>
+            <br />
+            <li><a href="/tag/word1" data-weight="3">04/08/2022</a></li>
+            <li><a href="/tag/word2" data-weight="7">04/07/2022</a></li>
+            <li><a href="/tag/word3" data-weight="4">04/04/2022</a></li>
+            <br />
+            <li><a href="/tag/word1" data-weight="3">04/02/2022</a></li>
+            <li><a href="/tag/word2" data-weight="7">04/01/2022</a></li>
+            <li><a href="/tag/word3" data-weight="4">03/31/2022</a></li>
+            <br />
+            <li><a href="/tag/word1" data-weight="3">03/29/2022</a></li>
+            <li><a href="/tag/word2" data-weight="7">03/26/2022</a></li>
+            <li><a href="/tag/word3" data-weight="4">03/25/2022</a></li>
+            <br />
+            <li><a href="/tag/word1" data-weight="3">03/24/2022</a></li>
+            <li><a href="/tag/word2" data-weight="7">03/23/2022</a></li>
+            <li><a href="/tag/word3" data-weight="4">03/22/2022</a></li>
+          </ul>
+        </div>
+        <div class="pulse">
+          <v-sparkline
+            :value="value"
+            :gradient="gradient"
+            :smooth="radius || false"
+            :padding="padding"
+            :line-width="width"
+            :stroke-linecap="lineCap"
+            :gradient-direction="gradientDirection"
+            :fill="fill"
+            :type="type"
+            :auto-line-width="autoLineWidth"
+            auto-draw
+          ></v-sparkline>
+        </div>
       </div>
       <div class="sub-info middle">
         <div class="sub-info top">
@@ -22,11 +58,11 @@
           <b id="grad2">
             <p id="grad1">Session Binge Length: {{ bingeLength }} mins</p>
           </b>
-          <p style="color: red; font-weight: bold; margin-left: 150px">
+          <p style="color: red; font-weight: bold">
             You Have Almost Reached your Limit Today!
           </p>
-          <p>
-            <b style="text-align: center; margin-left: 150px"
+          <p style="color: white; font-weight: bold">
+            <b style="text-align: center; color: white"
               >Time Left: {{ timeLeft }} mins</b
             >
           </p>
@@ -38,18 +74,27 @@
             font-family: Roboto, sans-serif;
             padding: 10px;
             margin-bottom: 0;
-            background-color: #e0ffff;
+            background-color: #221f1f;
           "
         >
-          <h1 id="righthead" style="margin-left: 50px; margin-right: 50px">
+          <h1
+            id="righthead"
+            style="
+              margin-top: 0px;
+              margin-left: 20px;
+              margin-right: 20px;
+              color: white;
+              font-size: 30px;
+            "
+          >
             Tasks
             <button
               @click="addNote"
               style="
                 background: transparent;
                 border: 0;
-                font-size: 25px;
-                background-color: #58cded82;
+                font-size: 15px;
+                background-color: #ffffff;
                 margin-left: 0px;
                 margin-right: 0px;
               "
@@ -67,6 +112,7 @@
       </div>
     </div>
   </div>
+
   <!-- </div> -->
 </template>
 
@@ -221,14 +267,17 @@
   .sub-info.left {
     width: 20%;
     display: inline-block;
+    background: #221f1f;
   }
   .sub-info.middle {
     width: 60%;
     display: inline-block;
+    background: #221f1f;
   }
   .sub-info.right {
     width: 20%;
-    //padding: 50px;
+    background: #221f1f;
+
     display: inline-block;
   }
   .row {
@@ -249,11 +298,13 @@
   .sub-info.top {
     width: 100%;
     display: inline-block;
+    padding-top: 85px;
+    padding-right: 50px;
   }
   .sub-info.bottom {
     width: 100%;
     display: inline-block;
-    // min-height: 100% !important;
+    margin-right: 150px;
   }
   .bingometer {
     //width: 100%;
@@ -272,7 +323,11 @@
     margin: 0 10px;
   }
   a {
-    color: #42b983;
+    color: #ffffff;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
   }
   $width: 100%;
   #grad1 {
@@ -281,14 +336,15 @@
 
     //padding-left: 30px
     // background-color: red; /* For browsers that do not support gradients */
-    border-color: teal;
-    border-radius: 25px;
+    //border-color: teal;
+    border-radius: 10px;
     //border-radius: 25px;
-    border: 2px solid #73ad21;
+    // border: 2px solid #73ad21;
     //border:10px;
     //width: 25%;
-    background-image: linear-gradient(to right, #d2e7d6, #e5726a);
+    background-image: linear-gradient(to right, #9ecea6, #e5726a);
     margin-left: 20%;
+    margin-right: 20%;
     background-size: ($width * 0.9) 100%;
   }
   #grad2 {
@@ -298,19 +354,23 @@
   .sugCard {
     border-color: rgb(0, 0, 0);
     // border: 20px;
-    border-radius: 25px;
-    padding: 20px 0 20px;
+    border-radius: 15px;
+    padding: 10px 0 10px;
     margin: auto;
     text-align: center;
     width: 200px;
     //height: 100px;
-    background-color: #58cded82;
+    background-color: #a8b1b8;
     font-weight: lighter;
     font-size: 15px;
     //margin: 10px;
     // margin-right: 20px;
-    margin-bottom: 50px;
-    margin-left: 35px;
+    margin-bottom: 20px;
+    //margin-left: 35px;
+  }
+  .sugCard:hover {
+    background-color: red;
+    color: white;
   }
   #righthead {
     font-family: Times New Roman;
