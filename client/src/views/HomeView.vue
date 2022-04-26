@@ -237,9 +237,14 @@ a {
   padding: 20px 20px;
 }
 .button-back {
+  color: #ff8095;
   background-color: transparent;
-  border: 0px;
+  border: solid;
+  border-width: thin;
+  border-radius: 25px;
+  border-color: #ff8095;
   margin-top: 100px;
+  padding-top: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
   padding-left: 20px;
@@ -341,7 +346,7 @@ p {
   margin: auto;
   text-align: center;
   width: 500px;
-  background-color: pink;
+  background-color: #ffc0cb;
 }
 .activity {
   float: left;
