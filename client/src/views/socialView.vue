@@ -1,11 +1,19 @@
 <template>
   <div>
     <Navsection />
-    <select v-model="selected" @change="onChange()" id="shows">
+    <!-- <select v-model="selected" @change="onChange()" id="shows">
       <option v-for="option in options" :value="option.value">
         {{ option.text }}
       </option>
-    </select>
+    </select> -->
+    <Toggle
+      @change="onChange"
+      v-for="option in options"
+      :value="option.value"
+      v-model="option.enabled"
+      :onLabel="option.text"
+      :offLabel="option.text"
+    />
     <div class="info">
       <div
         class="sub-info left"
@@ -31,12 +39,14 @@
 
 <script>
 import Navsection from "@/components/Navsection.vue";
+import Toggle from "@vueform/toggle";
 import SocialBubble from "@/components/SocialBubble.vue";
 export default {
   name: "socialView",
   components: {
     SocialBubble,
     Navsection,
+    Toggle,
   },
   data() {
     var splicedChartData = [];
@@ -139,17 +149,17 @@ export default {
             backgroundColor: "#2c3e50",
             data: [
               {
-                x: 10,
+                x: 3,
                 y: 10,
                 r: 10,
               },
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 15,
+                x: 5,
                 y: 3,
                 r: 3,
               },
@@ -173,17 +183,17 @@ export default {
             backgroundColor: "#f87979",
             data: [
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 40,
+                x: 2,
                 y: 10,
                 r: 10,
               },
               {
-                x: 30,
+                x: 3,
                 y: 22,
                 r: 22,
               },
@@ -194,17 +204,17 @@ export default {
             backgroundColor: "#7C8CF8",
             data: [
               {
-                x: 10,
+                x: 3,
                 y: 10,
                 r: 10,
               },
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 15,
+                x: 5,
                 y: 3,
                 r: 3,
               },
@@ -228,17 +238,17 @@ export default {
             backgroundColor: "#f87979",
             data: [
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 40,
+                x: 2,
                 y: 10,
                 r: 10,
               },
               {
-                x: 30,
+                x: 3,
                 y: 22,
                 r: 22,
               },
@@ -249,17 +259,17 @@ export default {
             backgroundColor: "#7C8CF8",
             data: [
               {
-                x: 10,
+                x: 3,
                 y: 10,
                 r: 10,
               },
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 15,
+                x: 5,
                 y: 3,
                 r: 3,
               },
@@ -365,17 +375,17 @@ export default {
             backgroundColor: "#2c3e50",
             data: [
               {
-                x: 10,
+                x: 3,
                 y: 10,
                 r: 10,
               },
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 15,
+                x: 5,
                 y: 3,
                 r: 3,
               },
@@ -399,17 +409,17 @@ export default {
             backgroundColor: "#f87979",
             data: [
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 40,
+                x: 2,
                 y: 10,
                 r: 10,
               },
               {
-                x: 30,
+                x: 3,
                 y: 22,
                 r: 22,
               },
@@ -420,17 +430,17 @@ export default {
             backgroundColor: "#7C8CF8",
             data: [
               {
-                x: 10,
+                x: 3,
                 y: 10,
                 r: 10,
               },
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 15,
+                x: 5,
                 y: 3,
                 r: 3,
               },
@@ -454,17 +464,17 @@ export default {
             backgroundColor: "#f87979",
             data: [
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 40,
+                x: 2,
                 y: 10,
                 r: 10,
               },
               {
-                x: 30,
+                x: 3,
                 y: 22,
                 r: 22,
               },
@@ -475,17 +485,17 @@ export default {
             backgroundColor: "#7C8CF8",
             data: [
               {
-                x: 10,
+                x: 3,
                 y: 10,
                 r: 10,
               },
               {
-                x: 20,
+                x: 3,
                 y: 25,
                 r: 25,
               },
               {
-                x: 15,
+                x: 5,
                 y: 3,
                 r: 3,
               },
@@ -499,16 +509,34 @@ export default {
       selected: "All",
       options: [
         {
-          text: "All",
-          value: "All",
+          text: "Saketh",
+          value: "Saketh",
+          enabled: true,
         },
         {
-          text: "Friends",
-          value: "Friends",
+          text: "Tom",
+          value: "Tom",
+          enabled: true,
         },
         {
-          text: "Family",
-          value: "Family",
+          text: "Bob",
+          value: "Bob",
+          enabled: true,
+        },
+        {
+          text: "Mom",
+          value: "Mom",
+          enabled: true,
+        },
+        {
+          text: "Dad",
+          value: "Dad",
+          enabled: true,
+        },
+        {
+          text: "Happy",
+          value: "Happy",
+          enabled: true,
         },
       ],
       chartData: chartData,
@@ -644,6 +672,8 @@ export default {
   },
 };
 </script>
+
+<style src="@vueform/toggle/themes/default.css"></style>
 
 <style lang="scss" scoped>
 .info {
