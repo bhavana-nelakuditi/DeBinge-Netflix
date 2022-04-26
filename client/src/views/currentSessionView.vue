@@ -40,12 +40,14 @@
         </div>
             </div>
           
-  <tr v-for="(data, i) in data2graph" :key="i">
-              <td>{{ data.task }}</td>
-              <td>{{ data.time }}</td>
-            </tr>
+
         <div class="sub-info rightbottom">
             <div class="column  right" >
+              <p>Hello</p>
+                <div v-for="(data, i) in data2graph" :key="i">
+              <div>{{ data.task }}</div>
+              <div>{{ data.time }}</div>
+            </div>
               <ul>
                 <!-- <li> -->
   <!-- <li><a href="/tag/word1" data-weight="3">Word1</a></li>
