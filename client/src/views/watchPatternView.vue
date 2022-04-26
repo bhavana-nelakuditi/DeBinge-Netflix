@@ -23,18 +23,11 @@
         </div>
       </div>
       <div class="splitScreen rightScreen">
-        <!-- <table class="tableCSS" id="customers">
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Hours</th>
-            </tr>
-            <tr v-for="(data, i) in data2graph" :key="i">
-              <td>{{ data.name }}</td>
-              <td>{{ data.hours }}</td>
-            </tr>
-          </tbody>
-        </table> -->
+        <img
+          alt="Show Cloud"
+          src="../assets/cloud.png"
+          style="width: 75%; margin-top: 20%"
+        />
       </div>
     </div>
   </div>
@@ -93,42 +86,20 @@ export default {
       this.chartData.datasets[0].data = [];
       var data2graphLoop = [];
       this.options.forEach((element) => {
-        console.log("element['enabled']" + element["enabled"]);
         if (element["enabled"]) {
-          console.log("element['valuie']" + element["value"]);
           this.data2graph.forEach((el) => {
-            console.log("el" + el);
-            console.log("el['genre']" + el["genre"]);
             if (element["value"] == el["genre"]) {
               data2graphLoop.push(el);
-              console.log("data2graphLoop" + data2graphLoop);
             }
           });
         }
       });
-      // this.data2graph.forEach((element) => {
-      //   if (this.selected == element.genre) {
-      //     data2graphLoop.push(element);
-      //     this.chartData.labels.push(element.name);
-      //     this.chartData.datasets[0].data.push(element.hours);
-      //   } else if (this.selected == "All") {
-      //     data2graphLoop = [
-      //       { name: "Crown", hours: 5, genre: "Drama" },
-      //       { name: "Game of Thrones", hours: 9, genre: "Action" },
-      //       { name: "You", hours: 15, genre: "Thriller" },
-      //       { name: "Kota Factory", hours: 7, genre: "Drama" },
-      //       { name: "HIMYM", hours: 2, genre: "Sitcom" },
-      //     ];
-      //     this.chartData.labels = [
-      //       "Crown",
-      //       "Game of Thrones",
-      //       "You",
-      //       "Kota Factory",
-      //       "HIMYM",
-      //     ];
-      //     this.chartData.datasets[0].data = [5, 9, 15, 7, 2];
-      //   }
-      // });
+      this.chartData.labels = [];
+      this.chartData.datasets[0].data = [];
+      data2graphLoop.forEach((elemento) => {
+        this.chartData.labels.push(elemento.name);
+        this.chartData.datasets[0].data.push(elemento.hours);
+      });
       this.data2graph = data2graphLoop;
     },
   },
@@ -209,7 +180,7 @@ li {
 a {
   color: #42b983;
 }
-.toggle-blue{
+.toggle-blue {
   --toggle-width: 5rem;
   margin: 10px;
 }
