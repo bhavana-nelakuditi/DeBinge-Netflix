@@ -2,31 +2,62 @@
   <div class="home">
     <Navsection v-if="this.LoggedIn == true" />
     <h1 style="color: #e50914">De-Binge Netflix</h1>
-    <!-- h3 v-if="this.loginType == 'demo'">Welcome to the project demo!</h3--->
     <div class="homescreen" v-if="this.loginType == 'demo'">
       <div class="linkNavigation">
         <div class="row">
-          <p>Hi Alex, How are you feeling today?</p>
+          <p v-if="!moodSelected">Hi Alex, How are you feeling today?</p>
           <div class="splitScreen leftScreen" style="margin-top: 100px">
             <div class="sub-info-mid" />
             <div class="sub-info-mid">
-              <div class="row">
+              <div class="row" v-if="!moodSelected">
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Happy 😊</button>
+                  <button
+                    type="button"
+                    class="button-mood"
+                    @click="showSuggestion('happy')"
+                  >
+                    Happy 😊
+                  </button>
                 </div>
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Sad 🙁</button>
+                  <button
+                    type="button"
+                    class="button-mood"
+                    @click="showSuggestion('sad')"
+                  >
+                    Sad 🙁
+                  </button>
                 </div>
               </div>
-              <div class="row">
+              <div class="row" v-if="!moodSelected">
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Angry 😡</button>
+                  <button
+                    type="button"
+                    class="button-mood"
+                    @click="showSuggestion('angry')"
+                  >
+                    Angry 😡
+                  </button>
                 </div>
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">
+                  <button
+                    type="button"
+                    class="button-mood"
+                    @click="showSuggestion('disappointed')"
+                  >
                     Disappointed 😔
                   </button>
                 </div>
+              </div>
+              <div class="row" v-if="moodSelected">
+                <p class="sugCard">
+                  {{ suggestedMoodHealer }}<br /><button
+                    class="button-back"
+                    @click="moodSelected = false"
+                  >
+                    Back
+                  </button>
+                </p>
               </div>
             </div>
             <div class="sub-info-mid" />
@@ -75,9 +106,13 @@ export default {
   },
   data() {
     var loginType = "";
+    var moodSelected = false;
+    var suggestedMoodHealer = "";
     return {
       loginType: loginType,
       LoggedIn: this.$store.state.signingIn ? true : false,
+      moodSelected: moodSelected,
+      suggestedMoodHealer: suggestedMoodHealer,
     };
   },
   methods: {
@@ -86,6 +121,27 @@ export default {
       this.$store.dispatch("GET_LOGIN_TYPE", loginType);
       this.LoggedIn = this.$store.state.signingIn;
       this.loginType = loginType;
+    },
+    showSuggestion(moodStatus) {
+      this.moodSelected = true;
+      switch (moodStatus) {
+        case "happy":
+          this.suggestedMoodHealer = "Continue having a great day!";
+          break;
+        case "sad":
+          this.suggestedMoodHealer = "you're a sucker for happiness";
+          break;
+        case "angry":
+          this.suggestedMoodHealer =
+            "You watch history shows a lot of serious content!\nTry going for a short walk!";
+          break;
+        case "disappointed":
+          this.suggestedMoodHealer = "you're a sucker for happiness";
+          break;
+
+        default:
+          break;
+      }
     },
   },
   created() {
@@ -120,6 +176,14 @@ a {
   background-color: #f5f5f1;
   border: 0px;
   padding: 20px 20px;
+}
+.button-back {
+  background-color: transparent;
+  border: 0px;
+  margin-top: 100px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
 p {
   font-family: "Arial Bold";
@@ -164,7 +228,6 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
@@ -182,6 +245,16 @@ p {
   border-color: #000;
   border: 1px;
   border-radius: 25px;
-  padding: 20px 20px !important;
+  padding: 20px 20px;
+}
+.sugCard {
+  border-color: #000;
+  border: 20px;
+  border-radius: 25px;
+  padding: 50px 0 50px;
+  margin: auto;
+  text-align: center;
+  width: 500px;
+  background-color: pink;
 }
 </style>
