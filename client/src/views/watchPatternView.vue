@@ -12,7 +12,7 @@
               v-model="option.enabled"
               :onLabel="option.text"
               :offLabel="option.text"
-              class = "toggle-blue"
+              class="toggle-blue"
             />
           </div>
           <div class="sub-info"></div>
@@ -180,7 +180,7 @@ li {
 a {
   color: #42b983;
 }
-.toggle-blue{
+.toggle-blue {
   --toggle-width: 5rem;
   margin: 10px;
 }
