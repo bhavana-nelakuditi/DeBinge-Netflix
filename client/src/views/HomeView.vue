@@ -5,8 +5,10 @@
     <div class="homescreen" v-if="this.loginType == 'demo'">
       <div class="linkNavigation">
         <div class="row">
-          <p v-if="!moodSelected" style = "text-transform: lowercase;">Hi Saketh, How are you feeling today?</p>
-          <div class="splitScreen leftScreen" style="margin-top: 100px">
+          <p v-if="!moodSelected" style="text-transform: lowercase">
+            Hi Saketh, How are you feeling today?
+          </p>
+          <div class="splitScreen leftScreen" style="margin-top: 25px">
             <div class="sub-info-mid" />
             <div class="sub-info-mid">
               <div class="row" v-if="!moodSelected">
@@ -64,56 +66,26 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <br>
-        <div class="column">
-          <router-link to="/watchPattern">
-          <img src="../assets/bargraphic.jpg" alt="Watch Pattern">
-            <div class="centered">Monitor what you are watching </div> 
-          </router-link>
-        </div>
-        <div class="column">
-          <router-link to="/social">
-          <img src="../assets/socialgraphic.jpg" alt="Social">
-          <div class="centered">Find out how your friends and family compare </div>
-          </router-link>
-        </div>
-        <div class="column">
-          <router-link to="/currentSession">
-          <img src="../assets/bingegraphic.jpg" alt="Binge-o-meter">
-            <div class="centered">Are you on a binge right now? </div> 
-          </router-link>
-        </div>
-        <div class="column">
-          <router-link to="/progress">
-          <img src="../assets/recoverygraphic.jpg" alt="How You doin'?">
-            <div class="centered">Check how much you improved <br>(or not) </div>
-          </router-link>
+      <div class="row" v-if="moodSelected">
+        <h1>FIND YOUR ACTIVITY</h1>
+        <div class="triplerow">
+          <div class="activity" v-for="act in activityCards">
+            <h2>{{ act.activity }}</h2>
+            <img :src="act.img" />
+            <p>{{ act.time }} min</p>
           </div>
-    <br>
-        <h1> FIND YOUR ACTIVITY </h1>
-      <div class = "triplerow">
-       <div class = "activity">  
-         <h2> Yoga </h2>
-         <img src = "../assets/timeicon.png"> <p> 60 min </p>
-         </div>
-      <div class = "activity">  <h2> Cardio </h2> <img src = "../assets/timeicon.png"> <p> 90 min </p></div>
-      <div class = "activity">  <h2> Dinner </h2><img src = "../assets/timeicon.png"> <p> 30 min </p> </div>
-      <div class = "activity">  <h2> Cycling </h2><img src = "../assets/timeicon.png"> <p> 150 min </p> </div>
-      <div class = "activity">  <h2> Art Show </h2><img src = "../assets/timeicon.png"> <p> 300 min </p> </div>
-      <div class = "activity">  <h2> Guitar </h2><img src = "../assets/timeicon.png"> <p> 60 min </p> </div>
-      <div class = "activity" style= "background-color: white; width:100%">  <h2 > Try out a new activity near you --> </h2> </div>
-      
+        </div>
       </div>
-      
-    
-    </div>
     </div>
     <h3 v-if="this.loginType == 'project'">
       Welcome to the project!<br /><br />For project demo: Please Sign Out and
       select 'Demo' profile
     </h3>
-    <button @click="loginTrigger('demo')" v-if="this.LoggedIn == false">
+    <button
+      class="button-profile"
+      @click="loginTrigger('demo')"
+      v-if="this.LoggedIn == false"
+    >
       <img
         alt="Profile Image"
         src="../assets/netflix-profile.jpeg"
@@ -121,7 +93,11 @@
       />
       <p style="font-size: 24px">Demo</p>
     </button>
-    <button @click="loginTrigger('project')" v-if="this.LoggedIn == false">
+    <button
+      class="button-profile"
+      @click="loginTrigger('project')"
+      v-if="this.LoggedIn == false"
+    >
       <img
         alt="Profile Image"
         src="../assets/netflix-avatar.png"
@@ -144,11 +120,28 @@ export default {
     var loginType = "";
     var moodSelected = false;
     var suggestedMoodHealer = "";
+    var activityCards = [
+      { activity: "Yoga", img: require("../assets/timeicon.png"), time: 60 },
+      { activity: "Cardio", img: require("../assets/timeicon.png"), time: 90 },
+      { activity: "Dinner", img: require("../assets/timeicon.png"), time: 30 },
+      {
+        activity: "Cycling",
+        img: require("../assets/timeicon.png"),
+        time: 150,
+      },
+      {
+        activity: "Art Show",
+        img: require("../assets/timeicon.png"),
+        time: 300,
+      },
+      { activity: "Guitar", img: require("../assets/timeicon.png"), time: 60 },
+    ];
     return {
       loginType: loginType,
       LoggedIn: this.$store.state.signingIn ? true : false,
       moodSelected: moodSelected,
       suggestedMoodHealer: suggestedMoodHealer,
+      activityCards: activityCards,
     };
   },
   methods: {
@@ -188,10 +181,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
 h1 {
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   font-weight: 100;
   font-size: 60px;
 }
@@ -209,11 +202,10 @@ li {
 a {
   color: #e50914;
 }
-button {
-  background-color: #f5f5f1;;
+.button-profile {
+  background-color: #f5f5f1;
   border: 0px;
   padding: 20px 20px;
-  
 }
 .button-back {
   background-color: transparent;
@@ -228,27 +220,26 @@ p {
   color: teal;
 }
 .home {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 .linkNavigation {
   background-color: #f5f5f1;
   text-transform: uppercase;
   color: #141414;
   img {
-    
     filter: blur(4px);
     -webkit-filter: blur(1px);
   }
 }
 .mood {
   width: 60%;
-  height:  80px;
+  height: 80px;
   background-color: #e50914;
   margin-right: auto;
   margin-left: auto;
   color: #039;
   display: grid;
-  grid-template-columns: auto auto ;/* this make content center*/
+  grid-template-columns: auto auto; /* this make content center*/
 }
 .column {
   float: left;
@@ -256,16 +247,15 @@ p {
   position: relative;
   text-align: center;
   color: white;
-  border:#141414;
-    img {
+  border: #141414;
+  img {
     border-radius: 25px;
     float: left;
-    width:  330px;
+    width: 330px;
     height: 800px;
-    
-    object-fit:contain;
+
+    object-fit: contain;
   }
-  
 }
 .centered {
   position: absolute;
@@ -288,9 +278,9 @@ p {
   display: table;
   clear: both;
 }
-.triplerow{
-  background-image: url("../assets/activity.png");
-}
+// .triplerow {
+//   background-image: url("../assets/activity.png");
+// }
 .triplerow:after {
   content: "";
   display: table;
@@ -322,15 +312,15 @@ p {
 }
 .activity {
   float: left;
-  width: 15%;
+  width: 15.25%;
   position: relative;
   text-align: center;
-  box-shadow: 2px 2px 7px 1px #1C6EA4;
+  box-shadow: 2px 2px 7px 1px #1c6ea4;
   img {
     width: 50px;
-    height: 50px
+    height: 50px;
   }
   background-color: lightblue;
-  margin : 10px;
+  margin: 10px;
 }
 </style>
