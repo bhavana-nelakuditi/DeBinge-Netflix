@@ -12,30 +12,27 @@
             <div class="sub-info-mid">
               <div class="row">
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Click Me!</button>
+                  <button type="button" class="button-mood">Happy 😊</button>
                 </div>
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Click Me!</button>
+                  <button type="button" class="button-mood">Sad 🙁</button>
                 </div>
               </div>
               <div class="row">
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Click Me!</button>
+                  <button type="button" class="button-mood">Angry 😡</button>
                 </div>
                 <div class="sub-info-submid">
-                  <button type="button" class="button-mood">Click Me!</button>
+                  <button type="button" class="button-mood">
+                    Disappointed 😔
+                  </button>
                 </div>
               </div>
-
-              <!-- <button type="button" class="button-mood">Click Me!</button>
-              <button type="button" class="button-mood">Click Me!</button> -->
             </div>
             <div class="sub-info-mid" />
           </div>
         </div>
       </div>
-      <!-- <br />
-      <p>Find your activity : Suggest them alternative activities</p> -->
     </div>
     <h3 v-if="this.loginType == 'project'">
       Welcome to the project!<br /><br />For project demo: Please Sign Out and
