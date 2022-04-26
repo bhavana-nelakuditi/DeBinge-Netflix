@@ -150,20 +150,20 @@ export default {
     var moodSelected = false;
     var suggestedMoodHealer = "";
     var activityCards = [
-      { activity: "Yoga", img: require("../assets/timeicon.png"), time: 60 },
-      { activity: "Cardio", img: require("../assets/timeicon.png"), time: 90 },
-      { activity: "Dinner", img: require("../assets/timeicon.png"), time: 30 },
+      { activity: "Yoga", img: require("../assets/yoga.png"), time: 60 },
+      { activity: "Cardio", img: require("../assets/cardio.png"), time: 90 },
+      { activity: "Dinner", img: require("../assets/cooking.png"), time: 30 },
       {
         activity: "Cycling",
-        img: require("../assets/timeicon.png"),
+        img: require("../assets/cycle.png"),
         time: 150,
       },
       {
         activity: "Art Show",
-        img: require("../assets/timeicon.png"),
+        img: require("../assets/art.png"),
         time: 300,
       },
-      { activity: "Guitar", img: require("../assets/timeicon.png"), time: 60 },
+      { activity: "Guitar", img: require("../assets/music.png"), time: 60 },
     ];
     return {
       loginType: loginType,
@@ -350,13 +350,13 @@ p {
 }
 .activity {
   float: left;
-  width: 15.25%;
+  width: 15%;
   position: relative;
   text-align: center;
   box-shadow: 2px 2px 7px 1px #1c6ea4;
   img {
-    width: 50px;
-    height: 50px;
+    width: 25%;
+    height: 25%;
   }
   background-color: lightblue;
   margin: 10px;
