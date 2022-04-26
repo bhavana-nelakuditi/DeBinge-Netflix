@@ -8,11 +8,16 @@
       style="visibility: hidden"
       >Let me Pop up</a
     >
-    <!-- <select v-model="selected" @change="onChange()" id="shows">
-      <option v-for="option in options" :value="option.value">
-        {{ option.text }}
-      </option>
-    </select> -->
+    <div class="info">
+      <div class="sub-info left">
+        <img
+          v-for="badge in badgesImages"
+          :src="badge.img"
+          style="height: 100px; margin: 10px"
+        />
+      </div>
+      <div class="sub-info right" />
+    </div>
     <Toggle
       @change="onChange"
       v-for="option in options"
@@ -41,17 +46,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="info">
-      <div class="sub-info left">
-        <SocialBubble :chartData="chartData3" :chartOptions="chartOptions3" />
-      </div>
-      <div class="sub-info right">
-        <SocialBubble :chartData="chartData4" :chartOptions="chartOptions4" />
-      </div>
-      <div class="sub-info left">
-        <SocialBubble :chartData="chartData5" :chartOptions="chartOptions5" />
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -67,6 +61,12 @@ export default {
     Toggle,
   },
   data() {
+    var badgesImages = [
+      { badge: "feb", img: require("../assets/feb-month-badge.jpeg") },
+      { badge: "march", img: require("../assets/march-month-badge.jpeg") },
+      { badge: "april", img: require("../assets/april-month-badge.jpeg") },
+      { badge: "camper", img: require("../assets/camper-badge.jpeg") },
+    ];
     var splicedChartData = [];
     var chartData = [
       {
@@ -523,6 +523,7 @@ export default {
       },
     ];
     return {
+      badgesImages: badgesImages,
       splicedChartData: chartData,
       selected: "All",
       options: [
@@ -685,9 +686,6 @@ export default {
   },
   mounted() {
     document.getElementById("popup-button").click();
-    // alert(
-    //   "🥳 BADGE ALERT 🥳\nYou have been awarded the 'Camper Badge'\nContinue staying away from Netlix for another hour to earn it again!"
-    // );
   },
 };
 </script>
