@@ -33,7 +33,67 @@
         v-for="(entry, i) in splicedChartData"
         :key="i"
       >
-        <SocialBubble :chartData="chartData[i]" :chartOptions="chartOptions" />
+        <div class="screen">
+          <!-- <div id="app"> -->
+          <svg class="ActivityRings" viewBox="0 0 37 37">
+            <g class="ring ring1" style="transform: scale(1) rotate(-90deg)">
+              <circle
+                stroke-width="3"
+                r="15.915"
+                cx="50%"
+                cy="50%"
+                class="background"
+              />
+              <circle
+                stroke-width="3"
+                r="15.915"
+                cx="50%"
+                cy="50%"
+                class="completed"
+                stroke-dasharray="25, 100"
+              />
+            </g>
+            <!-- Stroke width = 3 / scaling-factor  - SVG Essentials Chapter 5 -->
+            <g class="ring ring2" style="transform: scale(0.75) rotate(-90deg)">
+              <circle
+                stroke-width="4"
+                r="15.915"
+                cx="50%"
+                cy="50%"
+                class="background"
+              />
+              <circle
+                stroke-width="4"
+                r="15.915"
+                cx="50%"
+                cy="50%"
+                class="completed"
+                stroke-dasharray="85, 100"
+              />
+            </g>
+            <!-- Stroke width = 3 / scaling-factor - SVG Essentials Chapter 5 -->
+            <g class="ring ring3" style="transform: scale(0.5) rotate(-90deg)">
+              <circle
+                stroke-width="6"
+                r="15.915"
+                cx="50%"
+                cy="50%"
+                class="background"
+              />
+              <circle
+                stroke-width="6"
+                r="15.915"
+                cx="50%"
+                cy="50%"
+                class="completed"
+                stroke-dasharray="47, 100"
+              />
+            </g>
+          </svg>
+          <!-- </div> -->
+        </div>
+
+        <!-- <SocialBubble :chartData="chartData[i]" :chartOptions="chartOptions" /> -->
       </div>
       <div class="sub-info bottomright" />
     </div>
@@ -778,6 +838,81 @@ export default {
   }
   .popup {
     width: 70%;
+  }
+}
+
+/*------------------------------------------------*/
+// body,
+// html {
+//   align-items: center;
+//   background: #222;
+//   display: flex;
+//   justify-content: center;
+//   color: #fff;
+//   min-height: 100%;
+// }
+
+.screen {
+  background: #222;
+  display: inline-block;
+  padding: 64px;
+  margin-bottom: 50px;
+}
+
+#app {
+  height: 256px;
+  width: 256px;
+}
+
+@keyframes RingProgress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.ActivityRings {
+  height: 100%;
+  width: 100%;
+
+  .ring {
+    transform-origin: 50%;
+  }
+  .completed {
+    animation: RingProgress 1s ease-in-out forwards;
+    stroke-linecap: round;
+  }
+  circle {
+    fill: none;
+  }
+}
+
+$color-red: #c53f3d;
+.ring1 {
+  .background {
+    stroke: transparentize($color-red, 0.8);
+  }
+  .completed {
+    stroke: $color-red;
+  }
+}
+
+$color-green: #94d55a;
+.ring2 {
+  .background {
+    stroke: transparentize($color-green, 0.8);
+  }
+  .completed {
+    stroke: $color-green;
+  }
+}
+
+$color-blue: #70bed7;
+.ring3 {
+  .background {
+    stroke: transparentize($color-blue, 0.8);
+  }
+  .completed {
+    stroke: $color-blue;
   }
 }
 </style>
