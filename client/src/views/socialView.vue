@@ -2,9 +2,9 @@
   <div>
     <Navsection />
     <select v-model="selected" @change="onChange()" id="shows">
-      <option v-for="option in options" :value="option.value">
+      <!-- <option v-for="option in options" :value="option.value">
         {{ option.text }}
-      </option>
+      </option> -->
     </select>
     <div class="info">
       <div
