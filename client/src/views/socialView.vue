@@ -29,12 +29,13 @@
     />
     <div class="info">
       <div
-        class="sub-info left"
+        class="sub-info bottomleft"
         v-for="(entry, i) in splicedChartData"
         :key="i"
       >
         <SocialBubble :chartData="chartData[i]" :chartOptions="chartOptions" />
       </div>
+      <div class="sub-info bottomright" />
     </div>
     <div id="popup1" class="overlay">
       <div class="popup">
@@ -697,13 +698,21 @@ export default {
   margin: 40px 0 0;
   height: 20%;
   width: 100%;
-  display: flex;
 }
 .sub-info.left {
-  width: 66%;
+  width: 33%;
+  display: inline-block;
+}
+.sub-info.bottomleft {
+  width: 33%;
   display: inline-block;
 }
 .sub-info.right {
+  width: 66%;
+  display: inline-block;
+  min-height: 100% !important;
+}
+.sub-info.bottomright {
   width: 33%;
   display: inline-block;
   min-height: 100% !important;
