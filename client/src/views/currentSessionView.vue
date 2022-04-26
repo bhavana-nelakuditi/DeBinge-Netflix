@@ -25,9 +25,9 @@
         <div class="sub-info rightbottom">
           <div class="column right">
             <p>Hello</p>
-            <div v-for="data in data2graph">
-              <p>{{ data.name }}</p>
-              <p>{{ data.Due }}</p>
+            <div v-for="data in data2graph" class="sugCard">
+              <p>{{ data.task }}</p>
+              <p>{{ data.due }}</p>
             </div>
             <ul></ul>
           </div>
@@ -49,8 +49,8 @@ export default {
       timeLeft: 10,
       selected: "04/12/2022",
       data2graph: [
-        { name: "Finish HW2", Due: "12Pm, 04/26/2022" },
-        { name: "Work on Final Presentation", Due: "10Pm, 04/29/2022" },
+        { task: "Finish HW2", due: "12Pm, 04/26/2022" },
+        { task: "Work on Final Presentation", due: "10Pm, 04/29/2022" },
       ],
       options: [
         {
@@ -262,5 +262,6 @@ $width: calc(100px + 25%);
   text-align: center;
   width: 500px;
   background-color: pink;
+  margin: 50px;
 }
 </style>
