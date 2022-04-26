@@ -10,36 +10,45 @@
         <div class="column">
           <router-link to="/watchPattern">
           <img src="../assets/bargraphic.jpg" alt="Watch Pattern">
-            <div class="centered">Centered</div> 
+            <div class="centered">Monitor what you are watching </div> 
           </router-link>
         </div>
         <div class="column">
           <router-link to="/social">
           <img src="../assets/socialgraphic.jpg" alt="Social">
-          <div class="centered">Centered</div>
+          <div class="centered">Find out how your friends and family compare </div>
           </router-link>
         </div>
         <div class="column">
           <router-link to="/currentSession">
           <img src="../assets/bingegraphic.jpg" alt="Binge-o-meter">
-            <div class="centered">Centered</div> 
+            <div class="centered">Are you on a binge right now? </div> 
           </router-link>
         </div>
         <div class="column">
           <router-link to="/progress">
-          <img src="../assets/bargraphic.jpg" alt="How You doin'?">
-            <div class="centered">Centered</div>
+          <img src="../assets/recoverygraphic.jpg" alt="How You doin'?">
+            <div class="centered">Check how much you improved <br>(or not) </div>
           </router-link>
         </div>
       </div>
       </div>
     <br>
-      <p> Hi Alex, How are you feeling today?
-        Implement a mood checker!
-      </p>
-    <br>
-      <p> Find your activity : Suggest them alternative activities
-      </p>
+        <h1> FIND YOUR ACTIVITY </h1>
+      <div class = "triplerow">
+       <div class = "activity">  
+         <h2> Yoga </h2>
+         <img src = "../assets/timeicon.png"> <p> 60 min </p>
+         </div>
+      <div class = "activity">  <h2> Cardio </h2> <img src = "../assets/timeicon.png"> <p> 90 min </p></div>
+      <div class = "activity">  <h2> Dinner </h2><img src = "../assets/timeicon.png"> <p> 30 min </p> </div>
+      <div class = "activity">  <h2> Cycling </h2><img src = "../assets/timeicon.png"> <p> 150 min </p> </div>
+      <div class = "activity">  <h2> Art Show </h2><img src = "../assets/timeicon.png"> <p> 300 min </p> </div>
+      <div class = "activity">  <h2> Guitar </h2><img src = "../assets/timeicon.png"> <p> 60 min </p> </div>
+      <div class = "activity" style= "background-color: white; width:100%">  <h2 > Try out a new activity near you --> </h2> </div>
+      
+      </div>
+      
     
     </div>
     <h3 v-if="this.loginType == 'project'">
@@ -97,6 +106,7 @@ export default {
 
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap');
 h1 {
   font-family: 'Bebas Neue', cursive;
   font-weight: 100;
@@ -114,30 +124,31 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #e50914;
 }
 button {
-  background-color: #F5F5F1;;
+  background-color: #f5f5f1;;
   border: 0px;
   padding: 20px 20px;
   
 }
-p {
-  font-family: 'Arial Bold';
-  color: blue;
+.home {
+  font-family: 'Roboto', sans-serif;
 }
 .linkNavigation {
-  //background-color: #141414;
+  background-color: #f5f5f1;
+  text-transform: uppercase;
   color: #141414;
   img {
-    filter: blur(3px);
+    
+    filter: blur(4px);
     -webkit-filter: blur(1px);
   }
 }
 .mood {
   width: 60%;
   height:  80px;
-  background-color: #9FC;
+  background-color: #e50914;
   margin-right: auto;
   margin-left: auto;
   color: #039;
@@ -152,8 +163,9 @@ p {
   color: white;
   border:#141414;
     img {
+    border-radius: 25px;
     float: left;
-    width:  450px;
+    width:  330px;
     height: 800px;
     
     object-fit:contain;
@@ -162,14 +174,46 @@ p {
 }
 .centered {
   position: absolute;
-  top: 20%;
+  backdrop-filter: blur(2px);
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: table;
+  margin: 0px auto 0px auto;
+  padding: 3px;
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.582);
+}
+.centered:hover {
+  color: #7e060c;
+  text-decoration: underline;
 }
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
+}
+.triplerow{
+  background-image: url("../assets/activity.png");
+}
+.triplerow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.activity {
+  float: left;
+  width: 15%;
+  position: relative;
+  text-align: center;
+  box-shadow: 2px 2px 7px 1px #1C6EA4;
+  img {
+    width: 50px;
+    height: 50px
+  }
+  background-color: lightblue;
+  margin : 10px;
 }
 </style>
