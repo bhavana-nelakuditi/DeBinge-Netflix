@@ -6,7 +6,7 @@
         
           <table>
             <tbody>
-              <tr style="align-items: center">
+              <!-- <tr style="align-items: center">
                 <td v-for="(entry, i) in allScores" :key="i">
                   <img :src="entry.imageLocation" width="100" height="100" />
                 </td>
@@ -16,21 +16,39 @@
                 <td v-for="(entry, i) in allScores" :key="i">
                   <img :src="entry.imageLocation" width="100" height="100" />
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
+            
         
       </div>
 
       <div class="row">
             <div class="column  left" >
                 
-                <img  alt="Binge-o-meter" src="../assets/image.jpg" />
-     
+                <img  alt="Binge-o-meter" src="../assets/Capture.png" width="500" height="300" />
+     <div class="info" >
+        <div class="sub-info leftbottom">
+          <b id="grad2">
+
+            <p id="grad1">Session Binge Length: {{ bingeLength }} mins</p>
+          </b>
+          <p>
+            <b>Time Left: {{ timeLeft }} mins</b>
+            </p>
+        <div id="grad1"></div>
+        </div>
             </div>
+          
+  <tr v-for="(data, i) in data2graph" :key="i">
+              <td>{{ data.task }}</td>
+              <td>{{ data.time }}</td>
+            </tr>
+        <div class="sub-info rightbottom">
             <div class="column  right" >
               <ul>
-  <li><a href="/tag/word1" data-weight="3">Word1</a></li>
+                <!-- <li> -->
+  <!-- <li><a href="/tag/word1" data-weight="3">Word1</a></li>
   <li><a href="/tag/word2" data-weight="7">Word2</a></li>
   <li><a href="/tag/word3" data-weight="4">Word3</a></li>
   <li><a href="/tag/word1" data-weight="3">Word1</a></li><br>
@@ -38,21 +56,28 @@
   <li><a href="/tag/word3" data-weight="4">Word3</a></li>
   <li><a href="/tag/word1" data-weight="3">Word1</a></li><br>
   <li><a href="/tag/word2" data-weight="7">Word2</a></li>
-  <li><a href="/tag/word3" data-weight="4">Word3</a></li>
+  <li><a href="/tag/word3" data-weight="4">Word3</a></li> -->
+   <!-- <img  alt="Cloud" src="../assets/cloud.png"  width="500" height="300"/> -->
   
 </ul>
             </div>
       </div>
       
-      <div class="info">
+      <!-- <div class="info" >
         <div class="sub-info leftbottom">
-          <p>
-            <b>Session Binge Length: {{ bingeLength }} mins</b>
+          <p id="grad1">
+            Session Binge Length: {{ bingeLength }} mins
           </p>
-        </div>
-        <div class="sub-info rightbottom">
           <p>
             <b>Time Left: {{ timeLeft }} mins</b>
+            </p>
+        <div id="grad1"></div>
+        </div>
+
+        <div class="sub-info rightbottom"> -->
+          <p>
+            <!-- <b>Time Left: {{ timeLeft }} mins</b> -->
+
           </p>
         </div>
       </div>
@@ -72,6 +97,10 @@ export default {
       bingeLength: 200,
       timeLeft: 10,
       selected: "04/12/2022",
+       data2graph: [
+        { name: "Finish HW2", Due: "12Pm, 04/26/2022"},
+        { name: "Work on Final Presentation", Due: "10Pm, 04/29/2022"  },
+      ],
       options: [
         {
           text: "04/12/2022",
@@ -240,6 +269,7 @@ export default {
   //height: 400px;
   display: inline-block;
 }
+
 h3 {
   margin: 40px 0 0;
 }
@@ -254,5 +284,36 @@ li {
 a {
   color: #42b983;
 }
+$width: calc(100px + 25%);
 
+#grad1 {
+  //height: 10px;
+  //width: 300px;
+
+  //padding-left: 30px
+ // background-color: red; /* For browsers that do not support gradients */
+ border-color : teal; 
+ border-radius:25px; 
+  //border-radius: 25px;
+border: 2px solid #73AD21;
+ //border:10px;
+ //width: 25%;
+  background-image: linear-gradient(to right, #d2e7d6 , #e5726a);
+  margin-left: 20%;
+  
+}
+#grad2{
+    width: $width;
+  padding-left: calc($width / 4);
+}
+.sugCard {
+  border-color: #000;
+  border: 20px;
+  border-radius: 25px;
+  padding: 50px 0 50px;
+  margin: auto;
+  text-align: center;
+  width: 500px;
+  background-color: pink;
+}
 </style>
