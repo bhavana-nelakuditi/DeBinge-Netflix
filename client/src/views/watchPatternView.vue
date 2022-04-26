@@ -4,15 +4,17 @@
     <div class="watchPattern">
       <div class="splitScreen leftScreen">
         <div class="filter">
-          <div class="sub-info"></div>
-          <div class="sub-info"></div>
           <div class="sub-info">
-            <select v-model="selected" @change="onChange()" id="shows">
-              <option v-for="option in options" :value="option.value">
-                {{ option.text }}
-              </option>
-            </select>
+            <Toggle
+              v-for="option in options"
+              :value="option.value"
+              v-model="value"
+              :onLabel="option.text"
+              :offLabel="option.text"
+            />
           </div>
+          <div class="sub-info"></div>
+          <div class="sub-info"></div>
         </div>
         <div class="graphArea">
           <BarChart :chartData="chartData" />
@@ -40,15 +42,17 @@
 import Navsection from "@/components/Navsection.vue";
 import BarChart from "@/components/BarChart.vue";
 
+import Toggle from "@vueform/toggle";
+
 export default {
   name: "watchPattern",
   components: {
     BarChart,
     Navsection,
+    Toggle,
   },
   data() {
     return {
-      selected: "All",
       chartData: {
         labels: ["Crown", "Game of Thrones", "You", "Kota Factory", "HIMYM"],
         datasets: [
@@ -67,12 +71,12 @@ export default {
         { name: "HIMYM", hours: 2, genre: "Sitcom" },
       ],
       options: [
-        { text: "All", value: "All" },
         { text: "Drama", value: "Drama" },
         { text: "Action", value: "Action" },
         { text: "Thriller", value: "Thriller" },
         { text: "Sitcom", value: "Sitcom" },
       ],
+      value: true,
     };
   },
   methods: {
@@ -116,6 +120,7 @@ export default {
 };
 </script>
 
+<style src="@vueform/toggle/themes/default.css"></style>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .watchPattern {
