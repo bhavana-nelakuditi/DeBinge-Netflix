@@ -16,7 +16,7 @@
                   <button
                     type="button"
                     class="button-mood"
-                    style="margin-right: 200px"
+                    style="margin-right: 200"
                     @click="showSuggestion('happy')"
                   >
                     😊
@@ -360,5 +360,15 @@ p {
   }
   background-color: lightblue;
   margin: 10px;
+}
+.row button {
+  background: #F8D9FB;
+  background: -moz-linear-gradient(45deg, #F8D9FB 0%, #FFFFFF 100%);
+  background: -webkit-linear-gradient(45deg, #F8D9FB 0%, #FFFFFF 100%);
+  background: linear-gradient(45deg, #F8D9FB 0%, #FFFFFF 100%);
+  margin-right: 16px;
+}
+.sub-info-mid {
+  column-count: 1;
 }
 </style>
