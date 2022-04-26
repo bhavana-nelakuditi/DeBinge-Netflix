@@ -16,9 +16,10 @@
                   <button
                     type="button"
                     class="button-mood"
+                    style="margin-right: 200px"
                     @click="showSuggestion('happy')"
                   >
-                    Happy 😊
+                    😊
                   </button>
                 </div>
                 <div class="sub-info-submid">
@@ -27,7 +28,7 @@
                     class="button-mood"
                     @click="showSuggestion('sad')"
                   >
-                    Sad 🙁
+                    🙁
                   </button>
                 </div>
               </div>
@@ -38,7 +39,7 @@
                     class="button-mood"
                     @click="showSuggestion('angry')"
                   >
-                    Angry 😡
+                    😡
                   </button>
                 </div>
                 <div class="sub-info-submid">
@@ -47,7 +48,7 @@
                     class="button-mood"
                     @click="showSuggestion('disappointed')"
                   >
-                    Disappointed 😔
+                    😔
                   </button>
                 </div>
               </div>
@@ -74,6 +75,34 @@
             <img :src="act.img" />
             <p>{{ act.time }} min</p>
           </div>
+        </div>
+        <div class="column">
+          <router-link to="/watchPattern">
+            <img src="../assets/bargraphic.jpg" alt="Watch Pattern" />
+            <div class="centered">Monitor what you are watching</div>
+          </router-link>
+        </div>
+        <div class="column">
+          <router-link to="/social">
+            <img src="../assets/socialgraphic.jpg" alt="Social" />
+            <div class="centered">
+              Find out how your friends and family compare
+            </div>
+          </router-link>
+        </div>
+        <div class="column">
+          <router-link to="/currentSession">
+            <img src="../assets/bingegraphic.jpg" alt="Binge-o-meter" />
+            <div class="centered">Are you on a binge right now?</div>
+          </router-link>
+        </div>
+        <div class="column">
+          <router-link to="/progress">
+            <img src="../assets/recoverygraphic.jpg" alt="How You doin'?" />
+            <div class="centered">
+              Check how much you improved <br />(or not)
+            </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -295,10 +324,14 @@ p {
   display: inline-block;
 }
 .button-mood {
+  font-size: 50px;
   border-color: #000;
   border: 1px;
   border-radius: 25px;
-  padding: 20px 20px;
+  // padding: 20px 20px;
+  width: 100%;
+  margin: 20px;
+  padding: 30%;
 }
 .sugCard {
   border-color: #000;
