@@ -111,22 +111,39 @@
     <h3 v-if="this.loginType == 'project'">
       Welcome to the project!<br /><br />For project demo: Please Sign Out and
       select 'Demo' profile
-      <div class = "overview" >
-        <div class = "content">
-        <h2>OVERVIEW</h2>
-        <h5> An emerging form of addictive behavior, Binge Watching, has been on the rise due to Social Distancing and lockdowns because of the Covid-19 Pandemic. This led to an increase in anxiety, isolation, lack of sleep and other negative effects.
-          <br>Our idea is to offer a platform with various features where the users can keep a track of their Netflix usage, create limits based on their habits so they can regain habitual control over nonstop Netflix usage. The goal is to develop a plan through the means of which the user can control and curb their addiction. The user can either set a specified daily limit (example: 2 hours) or create a long-term plan which will effectively reduce their watch time over a period of time. (reducing half an hour every week from their regular usage until an effective time period is reached)
+      <div class="overview">
+        <div class="content">
+          <h2>Overview</h2>
+          <h5 style="text-align: justify; padding-left: 10%">
+            An emerging form of addictive behavior, Binge Watching, has been on
+            the rise due to Social Distancing and lockdowns because of the
+            Covid-19 Pandemic. This led to an increase in anxiety, isolation,
+            lack of sleep and other negative effects. <br /><br />Our idea is to
+            offer a platform with various features where the users can keep a
+            track of their Netflix usage, create limits based on their habits so
+            they can regain habitual control over nonstop Netflix usage. The
+            goal is to develop a plan through the means of which the user can
+            control and curb their addiction. The user can either set a
+            specified daily limit (example: 2 hours) or create a long-term plan
+            which will effectively reduce their watch time over a period of
+            time. (reducing half an hour every week from their regular usage
+            until an effective time period is reached)
           </h5>
-          </div>
-          <img src="../assets/netflix.jpg" alt="How You doin'?" />
+        </div>
+        <img src="../assets/netflix.jpg" alt="How You doin'?" />
       </div>
-      <div class = "overview" style= "margin:2%; background-color: #b6d5f08a;" >
-        <h2 style= "margin:2%; padding: 2% 0px 0px 0px;">Target Users</h2>
-        <h5> Our target users are predominantly adults between the ages 18-40 with a Netflix subscription or an access to one. <br>
-Users who are using Netflix daily and watch it more than 4 hours a day. <br>
-Users who are actively working on curbing / looking to curb their netflix addiction. <br>
-Academic or working professionals whose sleep/appetite/work is affected due to their Netflix binge-watching. <br>
-</h5>
+      <div class="overview" style="margin: 2%; background-color: #b6d5f08a">
+        <h2 style="margin: 2%; padding: 2% 0px 0px 0px">Target Users</h2>
+        <h5>
+          Our target users are predominantly adults between the ages 18-40 with
+          a Netflix subscription or an access to one. <br /><br />
+          Users who are using Netflix daily and watch it more than 4 hours a
+          day. <br /><br />
+          Users who are actively working on curbing / looking to curb their
+          netflix addiction. <br /><br />
+          Academic or working professionals whose sleep/appetite/work is
+          affected due to their Netflix binge-watching. <br /><br />
+        </h5>
       </div>
     </h3>
     <button
@@ -253,8 +270,8 @@ export default {
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Martel+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap");
 h1 {
   font-family: "Bebas Neue", cursive;
   font-weight: 100;
@@ -431,7 +448,7 @@ p {
   border-radius: 5px;
   margin: 20px;
   h5 {
-    font-family: 'Lato', sans-serif;
+    font-family: "Lato", sans-serif;
     color: #141414;
   }
   img {
@@ -441,7 +458,7 @@ p {
     padding: 2px;
   }
 }
-.overview:after { 
+.overview:after {
   content: "";
   clear: both;
   display: table;
