@@ -53,6 +53,51 @@ const routes = [
       );
     },
   },
+  {
+    path: "/reqGathering",
+    name: "reqGathering",
+    component: function () {
+      return import(
+        "../views/reqGathering.vue"
+      );
+    },
+  },
+  {
+    path: "/designSketch",
+    name: "designSketch",
+    component: function () {
+      return import(
+        "../views/designSketch.vue"
+      );
+    },
+  },
+  {
+    path: "/formativeCog",
+    name: "formativeCog",
+    component: function () {
+      return import(
+        "../views/formativeCog.vue"
+      );
+    },
+  },
+  {
+    path: "/conclusion",
+    name: "conclusion",
+    component: function () {
+      return import(
+        "../views/conclusion.vue"
+      );
+    },
+  },
+  {
+    path: "/contribution",
+    name: "contribution",
+    component: function () {
+      return import(
+        "../views/contribution.vue"
+      );
+    },
+  },
 ];
 
 const router = createRouter({

@@ -1,36 +1,90 @@
 <template>
   <div>
     <Navsection />
-    <div class="watchPattern">
-      <div class="splitScreen leftScreen">
-        <div class="filter">
-          <div class="sub-info"></div>
-          <div class="sub-info"></div>
-          <div class="sub-info">
-            <select v-model="selected" @change="onChange()" id="shows">
-              <option v-for="option in options" :value="option.value">
-                {{ option.text }}
-              </option>
-            </select>
-          </div>
+    <div class = "contribution">
+      <h2> Individual Contribution </h2>
+      <p style = "margin: 5%; padding 5%"> We majorly discussed most of the stuff to include like the actual problem we are addressing, the vision, the kind of data we need from the users to implement our plans and how effective the actual solution we are proposing will help the users and the effectiveness of incentives like achievements and badges. We also got together to address the feedback we got from the Instructor and our peers (through piazza) so we can make various improvements like the questions in User Interviews and alternate options that can be provided to the user.
+      <br> Requirement Gathering and Specifications:
+All of us conducted Interviews and got together to analyze the responses we got along with establishing the requirements from finding extensions to our project scope.
+
+<br>Sketch Diary: Each individual contributed 3 sketches for the first segment out of which one was selected and for the second round, each individual contributed 2 sketches, out of which we selected one final sketch.
+
+<br>Report: We all sat down together and created the report. Everyone contributed equally to the entire report.
+<br>Requirement Elicitation: We came up with 2 questions each (total of 6).
+<br> For Formative Evaluation: 
+We based our low fidelity prototypes on the final sketches selected after the Sketching activity done using the 10 plus 10 method. After creating the prototype we conducted the evaluation with the two evaluators from class.
+
+<br> For the screen of low fidelity prototype we created the following screens:
+Sajal: Home, SHOWTIME, How you doin’
+Saketh: Binge-o-meter
+Bhavana: Social
+
+<br> For the evaluation we took on the following roles: 
+Sajal : Computer
+Saketh: Facilitator
+Bhavana: Observer
+
+<br>After conducting the evaluation, we got insights together and decided on changes we have to make to the application.
+<br> For the website we based the design based on our sketches and the feedback we received after the frormative Evaluation. 
+We got together to decide on the designs of each page to increase their usability and focused mainly on the glanceability and ease of use.
+      </p>
+      <div class = "row" >
+        <div class = "column">
+          
+          <ul>
+            <h3>  Sajal Kherde </h3>
+            <li> Concept and the Conceptual Model </li> 
+            <li>  Literature Review </li>
+            <li> Development Options </li>
+            <li>Results and analysis </li>
+            <li> User Requirements </li>
+            <li>  Non Functional Requirements </li>
+            <li> Vue Project set up</li>
+            <li> Routes </li>
+            <li> Home page Mood detection </li>
+            <li> Navigation bar </li>
+            <li> Scenarios for the task cards </li>
+            <li> Annotated the screens </li>
+            <li> User/evaluator paths(CW) for the given tasks </li>
+            <li> General improvements under feedback from formative evaluation </li>
+
+          </ul>
         </div>
-        <div class="graphArea">
-          <BarChart :chartData="chartData" />
+        <div class = "column">
+          <ul>
+          <h3> Sai Saketh Chamarthi  </h3>
+          <li> Introduction & Vision </li> 
+            <li>   Example tasks </li>
+            <li> User Scenarios </li>
+            <li>Usability Requirements </li>
+            <li> Requirement Elicitation </li>
+            <li>  Non Functional Requirements </li>
+            <li> Bing-o-meter </li>
+            <li> Watch Pattern Page </li>
+            <li> Walkthrough comments for CW from the user paths </li>
+            <li> Tasks and description for the task cards </li>
+
+          </ul>
+          
         </div>
-      </div>
-      <div class="splitScreen rightScreen">
-        <table class="tableCSS" id="customers">
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Hours</th>
-            </tr>
-            <tr v-for="(data, i) in data2graph" :key="i">
-              <td>{{ data.name }}</td>
-              <td>{{ data.hours }}</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class = "column">
+          <ul>
+          <h3> Bhavana Nelakuditi </h3>
+          <li> Refinement of Project Scope </li> 
+            <li>  Target Users  </li>
+            <li> Characteristics</li>
+            <li>Goals </li>
+            <li> User & Functional requirements </li>
+            <li> Plans for gathering requirements </li>
+            <li> Website Home page</li>
+            <li> How You Doin' Page </li>
+            <li> Project section of the website </li>
+            <li>  Evaluation Method</li>
+            <li>  Cognitive walkthrough </li>
+            <li> Ideal path and assumptions </li>
+
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -38,81 +92,13 @@
 
 <script>
 import Navsection from "@/components/Navsection.vue";
-import BarChart from "@/components/BarChart.vue";
 
 export default {
-  name: "watchPattern",
+  name: "contribution",
   components: {
-    BarChart,
     Navsection,
   },
-  data() {
-    return {
-      selected: "All",
-      chartData: {
-        labels: ["Crown", "Game of Thrones", "You", "Kota Factory", "HIMYM"],
-        datasets: [
-          {
-            label: "TV Shows",
-            backgroundColor: "#f87979",
-            data: [5, 9, 15, 7, 2],
-          },
-        ],
-      },
-      data2graph: [
-        { name: "Crown", hours: 5, genre: "Drama" },
-        { name: "Game of Thrones", hours: 9, genre: "Action" },
-        { name: "You", hours: 15, genre: "Thriller" },
-        { name: "Kota Factory", hours: 7, genre: "Drama" },
-        { name: "HIMYM", hours: 2, genre: "Sitcom" },
-      ],
-      options: [
-        { text: "All", value: "All" },
-        { text: "Drama", value: "Drama" },
-        { text: "Action", value: "Action" },
-        { text: "Thriller", value: "Thriller" },
-        { text: "Sitcom", value: "Sitcom" },
-      ],
-    };
-  },
-  methods: {
-    onChange() {
-      this.data2graph = [
-        { name: "Crown", hours: 5, genre: "Drama" },
-        { name: "Game of Thrones", hours: 9, genre: "Action" },
-        { name: "You", hours: 15, genre: "Thriller" },
-        { name: "Kota Factory", hours: 7, genre: "Drama" },
-        { name: "HIMYM", hours: 2, genre: "Sitcom" },
-      ];
-      this.chartData.labels = [];
-      this.chartData.datasets[0].data = [];
-      var data2graphLoop = [];
-      this.data2graph.forEach((element) => {
-        if (this.selected == element.genre) {
-          data2graphLoop.push(element);
-          this.chartData.labels.push(element.name);
-          this.chartData.datasets[0].data.push(element.hours);
-        } else if (this.selected == "All") {
-          data2graphLoop = [
-            { name: "Crown", hours: 5, genre: "Drama" },
-            { name: "Game of Thrones", hours: 9, genre: "Action" },
-            { name: "You", hours: 15, genre: "Thriller" },
-            { name: "Kota Factory", hours: 7, genre: "Drama" },
-            { name: "HIMYM", hours: 2, genre: "Sitcom" },
-          ];
-          this.chartData.labels = [
-            "Crown",
-            "Game of Thrones",
-            "You",
-            "Kota Factory",
-            "HIMYM",
-          ];
-          this.chartData.datasets[0].data = [5, 9, 15, 7, 2];
-        }
-      });
-      this.data2graph = data2graphLoop;
-    },
-  },
+  props: {},
 };
 </script>
 
@@ -188,5 +174,71 @@ li {
 }
 a {
   color: #42b983;
+}
+.Currentplan {
+  background-color: #d0e4f58a;
+  border-radius: 5px;
+  margin: 20px;
+}
+h2 {
+  margin: 10px;
+  padding-top: 2%;
+  align-content: left;
+  font-family: 'Rubik Mono One', sans-serif;
+  ;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  float: left;
+  width: 31%;
+  position: relative;
+  text-align: center;
+  color: white;
+  border:#141414;
+  background-color: #d0e4f5e6 ;
+  border-radius: 5px;
+  margin: 10px;
+    h3 {
+      padding: 10%;
+      font-family: 'Rubik', sans-serif;
+      margin: 5px;
+      color:#141414;
+    }
+    img {
+      max-width:100%;
+      max-height:100%;
+      border-radius: 5px;
+    }
+    p{
+      padding:1px;
+      margin:1px;
+      font-family: 'DM Sans', sans-serif;
+      color: #4a4848;
+    }
+    h6 {
+      color: #477f58
+    }
+    h6:hover {
+  color: #7e060c;
+  text-decoration: underline;
+}
+}
+
+ul {
+  background: #60a6eb5d;
+  padding: 5%;
+  margin: 5%;
+}
+ul li {
+  background: #cce5ff;
+  color: darkblue;
+  margin: 2%;
+  padding: 1%;
 }
 </style>

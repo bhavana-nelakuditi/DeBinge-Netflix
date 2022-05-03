@@ -14,7 +14,7 @@
       <router-link to="/designSketch">Sketch Diary</router-link>
       |
       <router-link to="/formativeCog">Formative Evaluation</router-link>
-      | <router-link to="/conclusion">Conclusion</router-link> |
+       |
       <router-link to="/contribution">Individual Contributions</router-link> |
       <a href="/" @click="loginTrigger">Sign Out</a>
     </nav>
