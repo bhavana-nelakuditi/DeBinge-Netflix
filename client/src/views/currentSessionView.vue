@@ -2,32 +2,28 @@
   <div>
     <Navsection />
     <div class="row">
-      <div class="sub-info left" style="padding-left: 60px; padding-top: 50px">
+      <div class="sub-info left" style="padding-left: 20px; padding-top: 50px">
         <div>
-          <ul>
-            <h2 style="color: red">Your Binges!</h2>
+          <ul class="cloud" role="navigation" aria-label="Webdev tag cloud">
+            <!--<h2 style="color: red">Your Binges!</h2>-->
             <br />
-            <li style="color: white">
-              <a href="/tag/word1" data-weight="3">04/15/2022</a>
+            <li>
+              <a href="" data-weight="3">04/15/2022</a>
             </li>
-            <li><a href="/tag/word2" data-weight="7">04/12/2022</a></li>
-            <li><a href="/tag/word3" data-weight="4">04/09/2022</a></li>
+            <li><a href="" data-weight="1">04/12/2022</a></li>
+            <li><a href="" data-weight="5">04/09/2022</a></li>
             <br />
-            <li><a href="/tag/word1" data-weight="3">04/08/2022</a></li>
-            <li><a href="/tag/word2" data-weight="7">04/07/2022</a></li>
-            <li><a href="/tag/word3" data-weight="4">04/04/2022</a></li>
+            <li><a href="" data-weight="7">04/08/2022</a></li>
+            <li><a href="" data-weight="2">04/07/2022</a></li>
+            <li><a href="" data-weight="4">04/04/2022</a></li>
             <br />
-            <li><a href="/tag/word1" data-weight="3">04/02/2022</a></li>
-            <li><a href="/tag/word2" data-weight="7">04/01/2022</a></li>
-            <li><a href="/tag/word3" data-weight="4">03/31/2022</a></li>
+            <li><a href="" data-weight="5">04/02/2022</a></li>
+            <li><a href="" data-weight="3">04/01/2022</a></li>
+            <li><a href="" data-weight="4">03/31/2022</a></li>
             <br />
-            <li><a href="/tag/word1" data-weight="3">03/29/2022</a></li>
-            <li><a href="/tag/word2" data-weight="7">03/26/2022</a></li>
-            <li><a href="/tag/word3" data-weight="4">03/25/2022</a></li>
-            <br />
-            <li><a href="/tag/word1" data-weight="3">03/24/2022</a></li>
-            <li><a href="/tag/word2" data-weight="7">03/23/2022</a></li>
-            <li><a href="/tag/word3" data-weight="4">03/22/2022</a></li>
+            <li><a href="" data-weight="5">04/16/2022</a></li>
+            <li><a href="" data-weight="3">04/17/2022</a></li>
+            <li><a href="" data-weight="4">03/18/2022</a></li>
           </ul>
         </div>
         <div class="pulse">
@@ -48,21 +44,23 @@
       </div>
       <div class="sub-info middle">
         <div class="sub-info top">
+          <p style="color: red; font-weight: bold">
+            You Have Almost Reached your Limit Today!
+          </p>
           <img
             alt="Binge-o-meter"
-            src="../assets/Capture.png"
-            width="500"
+            src="../assets/1.png"
+            width="600"
             height="300"
+            style="padding-right: 50px"
           />
         </div>
         <div class="sub-info bottom">
           <b id="grad2">
             <p id="grad1">Session Binge Length: {{ bingeLength }} mins</p>
           </b>
-          <p style="color: red; font-weight: bold">
-            You Have Almost Reached your Limit Today!
-          </p>
-          <p style="color: white; font-weight: bold">
+
+          <p style="color: white; font-weight: bold; border-color: white">
             <b style="text-align: center; color: white"
               >Time Left: {{ timeLeft }} mins</b
             >
@@ -98,6 +96,7 @@
                 background-color: #ffffff;
                 margin-left: 0px;
                 margin-right: 0px;
+                border-radius: 5px;
               "
             >
               +
@@ -244,10 +243,9 @@ export default {
     addNote() {
       this.taskHolder.push({
         index: this.taskHolder.length,
-        task: "Enter text here",
-        due: "Enter Due Date",
+        task: "New HW",
+        due: "Due: 11PM, 04/28/2022",
       });
-      console.log(this.taskHolder);
       this.$store.dispatch("GET_TASK_HOLDER", this.taskHolder);
     },
     removeNote(i) {
@@ -276,21 +274,27 @@ export default {
   width: 20%;
   display: inline-block;
   background: #221f1f;
+  padding-right: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 .sub-info.middle {
   width: 60%;
   display: inline-block;
   background: #221f1f;
+  padding-top: 0;
+  padding-right: 20px;
 }
 .sub-info.right {
   width: 20%;
   background: #221f1f;
-
   display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 .row {
   display: flex;
-  min-height: 1000px;
+  margin-top: 12px;
 }
 .row1 {
   display: flex;
@@ -307,8 +311,8 @@ export default {
 .sub-info.top {
   width: 100%;
   display: inline-block;
-  padding-top: 85px;
-  padding-right: 50px;
+  padding-top: 30px;
+  padding-right: 30px;
 }
 .sub-info.bottom {
   width: 100%;
@@ -386,5 +390,98 @@ $width: 100%;
   font-weight: bold;
   text-align: center;
   margin-right: 40px;
+}
+
+ul.cloud {
+  list-style: none;
+  //padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  line-height: 2.75rem;
+  // width: 450px;
+}
+
+ul.cloud a {
+  --size: 4;
+  --color: #a33;
+  color: var(--color);
+  font-size: calc(var(--size) * 0.25rem + 0.5rem);
+  display: block;
+  padding: 0.125rem 0.25rem;
+  position: relative;
+  text-decoration: none;
+}
+
+ul.cloud a[data-weight="1"] {
+  --size: 1;
+}
+ul.cloud a[data-weight="2"] {
+  --size: 2;
+}
+ul.cloud a[data-weight="3"] {
+  --size: 3;
+}
+ul.cloud a[data-weight="4"] {
+  --size: 4;
+}
+ul.cloud a[data-weight="5"] {
+  --size: 6;
+}
+ul.cloud a[data-weight="6"] {
+  --size: 8;
+}
+ul.cloud a[data-weight="7"] {
+  --size: 10;
+}
+ul.cloud a[data-weight="8"] {
+  --size: 13;
+}
+ul.cloud a[data-weight="9"] {
+  --size: 16;
+}
+
+ul[data-show-value] a::after {
+  content: " (" attr(data-weight) ")";
+  font-size: 1rem;
+}
+
+ul.cloud li:nth-child(2n + 1) a {
+  --color: #181;
+}
+ul.cloud li:nth-child(3n + 1) a {
+  --color: #33a;
+}
+ul.cloud li:nth-child(4n + 1) a {
+  --color: #c38;
+}
+
+ul.cloud a:focus {
+  outline: 1px dashed;
+}
+
+ul.cloud a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background: var(--color);
+  transform: translate(-50%, 0);
+  opacity: 0.15;
+  transition: width 0.25s;
+}
+
+ul.cloud a:focus::before,
+ul.cloud a:hover::before {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion) {
+  ul.cloud * {
+    transition: none !important;
+  }
 }
 </style>

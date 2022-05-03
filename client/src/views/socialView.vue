@@ -8,7 +8,7 @@
       style="visibility: hidden"
       >Let me Pop up</a
     >
-    <div class="info">
+    <!-- <div class="info">
       <div class="sub-info left">
         <img
           v-for="badge in badgesImages"
@@ -17,15 +17,14 @@
         />
       </div>
       <div class="sub-info right" />
-    </div>
+    </div> -->
     <Toggle
-      @change="onChange"
       v-for="option in options"
       :value="option.value"
       v-model="option.enabled"
       :onLabel="option.text"
       :offLabel="option.text"
-      class="toggle-blue"
+      :class="option.color"
     />
     <div class="info">
       <div
@@ -34,9 +33,13 @@
         :key="i"
       >
         <div class="screen">
-          <!-- <div id="app"> -->
+          <img :src="entry.img" style="height: 15%; width: 15%" />
           <svg class="ActivityRings" viewBox="0 0 37 37">
-            <g class="ring ring1" style="transform: scale(1) rotate(-90deg)">
+            <g
+              class="ring ring1"
+              style="transform: scale(1) rotate(-90deg)"
+              v-if="this.options[0].enabled"
+            >
               <circle
                 stroke-width="3"
                 r="15.915"
@@ -50,11 +53,14 @@
                 cx="50%"
                 cy="50%"
                 class="completed"
-                stroke-dasharray="25, 100"
+                :stroke-dasharray="entry.dasharray1"
               />
             </g>
-            <!-- Stroke width = 3 / scaling-factor  - SVG Essentials Chapter 5 -->
-            <g class="ring ring2" style="transform: scale(0.75) rotate(-90deg)">
+            <g
+              class="ring ring2"
+              style="transform: scale(0.75) rotate(-90deg)"
+              v-if="this.options[1].enabled"
+            >
               <circle
                 stroke-width="4"
                 r="15.915"
@@ -68,11 +74,14 @@
                 cx="50%"
                 cy="50%"
                 class="completed"
-                stroke-dasharray="85, 100"
+                :stroke-dasharray="entry.dasharray2"
               />
             </g>
-            <!-- Stroke width = 3 / scaling-factor - SVG Essentials Chapter 5 -->
-            <g class="ring ring3" style="transform: scale(0.5) rotate(-90deg)">
+            <g
+              class="ring ring3"
+              style="transform: scale(0.5) rotate(-90deg)"
+              v-if="this.options[2].enabled"
+            >
               <circle
                 stroke-width="6"
                 r="15.915"
@@ -86,14 +95,11 @@
                 cx="50%"
                 cy="50%"
                 class="completed"
-                stroke-dasharray="47, 100"
+                :stroke-dasharray="entry.dasharray3"
               />
             </g>
           </svg>
-          <!-- </div> -->
         </div>
-
-        <!-- <SocialBubble :chartData="chartData[i]" :chartOptions="chartOptions" /> -->
       </div>
       <div class="sub-info bottomright" />
     </div>
@@ -128,7 +134,34 @@ export default {
       { badge: "april", img: require("../assets/april-month-badge.jpeg") },
       { badge: "camper", img: require("../assets/camper-badge.jpeg") },
     ];
-    var splicedChartData = [];
+    var splicedChartData = [
+      {
+        dasharray1: Math.floor(Math.random() * 100) + ",100",
+        dasharray2: Math.floor(Math.random() * 100) + ",100",
+        dasharray3: Math.floor(Math.random() * 100) + ",100",
+        img: require("../assets/feb-month-badge.jpeg"),
+      },
+      {
+        dasharray1: Math.floor(Math.random() * 100) + ",100",
+        dasharray2: Math.floor(Math.random() * 100) + ",100",
+        dasharray3: Math.floor(Math.random() * 100) + ",100",
+        img: require("../assets/march-month-badge.jpeg"),
+      },
+      {
+        dasharray1: Math.floor(Math.random() * 100) + ",100",
+        dasharray2: Math.floor(Math.random() * 100) + ",100",
+        dasharray3: Math.floor(Math.random() * 100) + ",100",
+        img: require("../assets/april-month-badge.jpeg"),
+      },
+      {
+        dasharray1: 100,
+        dasharray2: Math.floor(Math.random() * 100) + ",100",
+        dasharray3: Math.floor(Math.random() * 100) + ",100",
+        img: require("../assets/camper-badge.jpeg"),
+      },
+      // { dasharray1: 25, dasharray2: 25, dasharray3: 25 },
+      // { dasharray1: 25, dasharray2: 25, dasharray3: 25 },
+    ];
     var chartData = [
       {
         labels: [
@@ -585,33 +618,26 @@ export default {
     ];
     return {
       badgesImages: badgesImages,
-      splicedChartData: chartData,
+      splicedChartData: splicedChartData,
       selected: "All",
       options: [
         {
-          text: "Tom",
-          value: "Tom",
+          text: "Saketh",
+          value: "Saketh",
           enabled: true,
+          color: "toggle-red",
         },
         {
           text: "Bob",
           value: "Bob",
           enabled: true,
+          color: "toggle-green",
         },
         {
           text: "Mom",
           value: "Mom",
           enabled: true,
-        },
-        {
-          text: "Dad",
-          value: "Dad",
-          enabled: true,
-        },
-        {
-          text: "Happy",
-          value: "Happy",
-          enabled: true,
+          color: "toggle-blue",
         },
       ],
       chartData: chartData,
@@ -725,26 +751,6 @@ export default {
       },
     };
   },
-  methods: {
-    onChange() {
-      var i = 0;
-      this.splicedChartData = [];
-      this.chartData.forEach((element) => {
-        console.log(element);
-        if (this.selected == "Friends" && i < 3) {
-          console.log("in if: " + element);
-          this.splicedChartData.push(element);
-        } else if (this.selected == "Family" && i > 2) {
-          console.log("in if: " + element);
-          this.splicedChartData.push(element);
-        } else if (this.selected == "All") {
-          console.log("in if: " + element);
-          this.splicedChartData.push(element);
-        }
-        i++;
-      });
-    },
-  },
   mounted() {
     document.getElementById("popup-button").click();
   },
@@ -764,7 +770,9 @@ export default {
   display: inline-block;
 }
 .sub-info.bottomleft {
-  width: 33%;
+  width: 30%;
+  margin-left: 10%;
+  margin-right: 10%;
   display: inline-block;
 }
 .sub-info.right {
@@ -773,7 +781,9 @@ export default {
   min-height: 100% !important;
 }
 .sub-info.bottomright {
-  width: 33%;
+  width: 30%;
+  margin-left: 10%;
+  margin-right: 10%;
   display: inline-block;
   min-height: 100% !important;
 }
@@ -842,15 +852,6 @@ export default {
 }
 
 /*------------------------------------------------*/
-// body,
-// html {
-//   align-items: center;
-//   background: #222;
-//   display: flex;
-//   justify-content: center;
-//   color: #fff;
-//   min-height: 100%;
-// }
 
 .screen {
   background: #222;
@@ -914,5 +915,24 @@ $color-blue: #70bed7;
   .completed {
     stroke: $color-blue;
   }
+}
+
+.toggle-red {
+  --toggle-bg-on: #c53f3d;
+  --toggle-border-on: #c53f3d;
+  --toggle-width: 6rem;
+  padding: 1.5rem;
+}
+.toggle-green {
+  --toggle-bg-on: #94d55a;
+  --toggle-border-on: #94d55a;
+  --toggle-width: 6rem;
+  padding: 1.5rem;
+}
+.toggle-blue {
+  --toggle-bg-on: #70bed7;
+  --toggle-border-on: #70bed7;
+  --toggle-width: 6rem;
+  padding: 1.5rem;
 }
 </style>

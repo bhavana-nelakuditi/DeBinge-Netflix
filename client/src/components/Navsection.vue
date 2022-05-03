@@ -56,10 +56,12 @@ nav {
   a {
     font-weight: bold;
     //color: #2c3e50;
-    color: #f5f5f1;
+    color: #ffffff;
+    text-decoration: none;
 
     &.router-link-exact-active {
-      color: #42b983;
+      // color: #42b983;
+      color: #f40f0f;
     }
   }
 }

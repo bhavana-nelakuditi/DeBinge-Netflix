@@ -70,11 +70,13 @@
       <div class="row" v-if="moodSelected">
         <h1>FIND YOUR ACTIVITY</h1>
         <div class="triplerow">
-          <div class="activity" v-for="act in activityCards">
-            <h2>{{ act.activity }}</h2>
-            <img :src="act.img" />
-            <p>{{ act.time }} min</p>
-          </div>
+          <a :href="act.url" v-for="act in activityCards">
+            <div class="activity">
+              <h2>{{ act.activity }}</h2>
+              <img :src="act.img" />
+              <p>{{ act.time }} min</p>
+            </div></a
+          >
         </div>
         <div class="column">
           <router-link to="/watchPattern">
@@ -167,20 +169,42 @@ export default {
     var moodSelected = false;
     var suggestedMoodHealer = "";
     var activityCards = [
-      { activity: "Yoga", img: require("../assets/yoga.png"), time: 60 },
-      { activity: "Cardio", img: require("../assets/cardio.png"), time: 90 },
-      { activity: "Dinner", img: require("../assets/cooking.png"), time: 30 },
+      {
+        activity: "Yoga",
+        img: require("../assets/yoga.png"),
+        time: 60,
+        url: "https://www.google.com/search?q=yoga+near+me",
+      },
+      {
+        activity: "Cardio",
+        img: require("../assets/cardio.png"),
+        time: 90,
+        url: "https://www.google.com/search?q=gym+near+me",
+      },
+      {
+        activity: "Dinner",
+        img: require("../assets/cooking.png"),
+        time: 30,
+        url: "https://www.google.com/search?q=dinner+near+me",
+      },
       {
         activity: "Cycling",
         img: require("../assets/cycle.png"),
         time: 150,
+        url: "https://www.google.com/search?q=cycling+near+me",
       },
       {
-        activity: "Art Show",
+        activity: "Art Installation",
         img: require("../assets/art.png"),
         time: 300,
+        url: "https://www.google.com/search?q=art+installations+near+me",
       },
-      { activity: "Guitar", img: require("../assets/music.png"), time: 60 },
+      {
+        activity: "Music",
+        img: require("../assets/music.png"),
+        time: 60,
+        url: "https://www.google.com/search?q=music+near+me",
+      },
     ];
     return {
       loginType: this.$store.state.loginType,
@@ -196,7 +220,6 @@ export default {
       this.$store.dispatch("GET_LOGIN_TYPE", loginType);
       this.LoggedIn = this.$store.state.signingIn;
       this.loginType = this.$store.state.loginType;
-      console.log(this.$store.state.loginType);
     },
     showSuggestion(moodStatus) {
       this.moodSelected = true;
