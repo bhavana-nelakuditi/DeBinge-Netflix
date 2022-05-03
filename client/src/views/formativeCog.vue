@@ -3,9 +3,9 @@
     <Navsection />
     <div class="overview">
       <h1>Formative Evaluation and Cognitive Walkthrough</h1>
-      <div class="content">
+      <div class="content" style="padding-left: 10%">
         <h2>Evaluation Method</h2>
-        <h5>
+        <h5 style="text-align: justify">
           We recruited two evaluators from the class for our project for the
           Wizard of Oz evaluation. In this evaluation, the users will interact
           with the system which is presented as a low fidelity prototype in its
@@ -29,7 +29,7 @@
       <h2 style="margin: 2%; padding: 2% 0px 0px 0px">
         Task and Scenario cards
       </h2>
-      <h5>
+      <h5 style="text-align: justify">
         Task 1 : Evaluate your current Binge Session <br />Scenario : It is
         midnight when you realize that it has been a while since you last came
         out of the room. You want to find out for how long you have been binging
@@ -85,7 +85,7 @@
       <h2 style="margin: 2%; padding: 2% 0px 0px 0px">
         Cognitive Walkthrough Insights
       </h2>
-      <h5>
+      <h5 style="text-align: justify">
         We got the feedback from the evaluators as they navigated the system to
         achieve the tasks given to them while thinking-out-loud regarding the
         actions/paths they took. We noted down instances when they strayed from
@@ -94,26 +94,24 @@
         including the metaphors, navigation styles like the menu display and
         drop down options. Based on the evaluation we decided on the following
         changes for the working prototype:
-
-        <br />
+        <br /><br />
         The metaphor for finding the watch pattern was confusing. Changing it to
         a better title would make it much easier for the user to understand it.
         Based on the feedback, we have changed the name “SHOWTIME” to “Trends”
-        so that the user can check for their watch patterns. <br />Adding the
-        show icons to the 'binge-o-meter' instead of colors to help users
+        so that the user can check for their watch patterns.<br /><br />Adding
+        the show icons to the 'binge-o-meter' instead of colors to help users
         understand the breakdown of their binge session by the shows/movies they
-        watched in the current session. <br />
+        watched in the current session.<br /><br />
         While completing task 2, the current display is not glanceable which
         reduces its usability. Based on the feedback, the display for that will
         be changed to a cluster of bubbles per person where the bubble size is
         dependent upon the watch time for the show and the background for that
         will be its icon to increase the recognition and reduce the user's
-        cognitive load. <br />
+        cognitive load.<br /><br />
         Adding a selection dropdown for subgroups to select a classification of
         people will make the functionality easier to use as the user can now
         classify peers under groups (friends/family) and compare effectively.
-
-        <br />
+        <br /><br />
         When the user was trying to read the graph, they were not able to
         recognize their target and the actual hours they spent on a specific
         day. Based on the feedback, we decided to add a vertical line depicting

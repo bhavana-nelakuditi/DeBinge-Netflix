@@ -132,8 +132,8 @@ export default {
       },
     ];
     return {
-      bingeLength: 200,
-      timeLeft: 10,
+      bingeLength: 190,
+      timeLeft: 20,
       selected: "04/12/2022",
       taskHolder: taskHolder,
       options: [

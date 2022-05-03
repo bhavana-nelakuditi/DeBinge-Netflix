@@ -26,7 +26,7 @@
               on one screen or select a specific one from the drop down to see
               the graph in a zoomed in view. The usability criteria was an
               important factor for the selection of this graph as it is a metric
-              where it doesn’t matter to the user if they watched a few mins
+              where it doesn't matter to the user if they watched a few mins
               less or more compared to their friends precisely but it speeds up
               the users task of understanding and recognizing the difference.
               This helps speed up their recognition and processing of thoughts.
@@ -55,13 +55,13 @@
               his information. The first sketches showed the shows that the user
               has binged along with the list of binge sessions he/she ever had.
               There was one sketch with just plain text and no graphs. Another
-              set of sketches from the preliminary round had a ‘bingometer’
+              set of sketches from the preliminary round had a 'bingometer'
               along with user limit and list of shows binged in the session. We
               pruned our list of sketches and decided to move forward with a
               sketch that had a bingometer as the needle helps in faster
               recognition of the amount of time binged and conveys the purpose
               of the page. We further incorporated multiple changes for the same
-              by – 1) dropdown list of past user binge sessions, 2) Removing the
+              by - 1) dropdown list of past user binge sessions, 2) Removing the
               shows watched and displaying just the time spent , 3) By adding a
               dropdown menu along with the time left and the shows watched. We
               rearranged the parameters on the screen to come up with 6
@@ -94,7 +94,7 @@
               reduces the efficiency and might increase the human errors for a
               novice user. In the final sketch, displaying the session selection
               is mentioned in a drop down menu. Here the shows are displayed
-              with their in-app icons to increase the user’s visibility which
+              with their in-app icons to increase the user's visibility which
               ties in with the consistency across both Netflix and our
               application. Time left for the current binge is highlighted in a
               different shape so it is glanceable. Even though a drop down menu
