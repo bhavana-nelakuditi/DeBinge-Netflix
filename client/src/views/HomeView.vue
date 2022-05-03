@@ -114,7 +114,13 @@
       <div class="overview">
         <div class="content">
           <h2>Overview</h2>
-          <h5 style="text-align: justify; padding-left: 10%">
+          <h5
+            style="
+              text-align: justify;
+              padding-left: 10%;
+              font-family: 'Rubik Mono One', sans-serif;
+            "
+          >
             An emerging form of addictive behavior, Binge Watching, has been on
             the rise due to Social Distancing and lockdowns because of the
             Covid-19 Pandemic. This led to an increase in anxiety, isolation,
@@ -134,7 +140,7 @@
       </div>
       <div class="overview" style="margin: 2%; background-color: #b6d5f08a">
         <h2 style="margin: 2%; padding: 2% 0px 0px 0px">Target Users</h2>
-        <h5>
+        <h5 style="font-family: 'Rubik Mono One', sans-serif">
           Our target users are predominantly adults between the ages 18-40 with
           a Netflix subscription or an access to one. <br /><br />
           Users who are using Netflix daily and watch it more than 4 hours a
@@ -448,7 +454,6 @@ p {
   border-radius: 5px;
   margin: 20px;
   h5 {
-    font-family: "Lato", sans-serif;
     color: #141414;
   }
   img {

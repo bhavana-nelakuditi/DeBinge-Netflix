@@ -182,6 +182,7 @@ export default {
 }
 h3 {
   margin: 40px 0 0;
+  font-family: "Rubik Mono One", sans-serif;
 }
 ul {
   list-style-type: none;
@@ -236,7 +237,7 @@ h2 {
   p {
     padding: 1px;
     margin: 1px;
-    font-family: "DM Sans", sans-serif;
+    font-family: "Rubik Mono One", sans-serif;
     color: #4a4848;
   }
   h6 {
