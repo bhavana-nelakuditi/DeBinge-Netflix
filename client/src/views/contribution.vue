@@ -191,7 +191,7 @@ a {
   color: #42b983;
 }
 .Currentplan {
-  background-color: #d0e4f58a;
+  // background-color: #d0e4f58a;
   border-radius: 5px;
   margin: 20px;
 }
@@ -245,12 +245,13 @@ h2 {
 }
 
 ul {
-  background: #60a6eb5d;
+  // background: #60a6eb5d;
   padding: 5%;
   margin: 5%;
 }
 ul li {
-  background: #cce5ff;
+  // background: #cce5ff;
+  background: #60a6eb5d;
   color: darkblue;
   margin: 2%;
   padding: 1%;
